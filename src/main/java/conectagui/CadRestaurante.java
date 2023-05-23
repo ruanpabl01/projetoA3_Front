@@ -4,6 +4,8 @@
  */
 package conectagui;
 
+import java.util.UUID;
+
 /**
  *
  * @author ruan.pablo.a.gomes
@@ -12,11 +14,44 @@ public class CadRestaurante {
     private String nomeRestaurante;
     private String emailRestaurante;
     private String senhaRestaurante;
+    private String cupons;
+    private int nota;
+    
+    public int getNota() {
+        return nota;
+    }
+
+    public void setNota(int nota) {
+        this.nota = nota;
+    }
+    
+    public CadRestaurante(String nomeRestaurante, String emailRestaurante, String senhaRestaurante, int nota){
+        this.nomeRestaurante = nomeRestaurante;
+        this.emailRestaurante = emailRestaurante;
+        this.senhaRestaurante = senhaRestaurante;
+        this.nota = nota;
+    }
+    
+    public CadRestaurante(String nomeRestaurante, String emailRestaurante, int nota){
+        this.nomeRestaurante = nomeRestaurante;
+        this.emailRestaurante = emailRestaurante;
+        this.nota = nota;
+    }
     
     public CadRestaurante(String nomeRestaurante, String emailRestaurante, String senhaRestaurante){
         this.nomeRestaurante = nomeRestaurante;
         this.emailRestaurante = emailRestaurante;
         this.senhaRestaurante = senhaRestaurante;
+    }
+    
+    public CadRestaurante(String emailRestaurante){
+        this.emailRestaurante = emailRestaurante;
+    }
+
+    
+    public CadRestaurante(String nomeRestaurante, String cnpjRestaurante){
+        this.nomeRestaurante = nomeRestaurante;
+        this.emailRestaurante = cnpjRestaurante;
     }
 
     public String getNomeRestaurante() {

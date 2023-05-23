@@ -110,6 +110,9 @@ public class LoginAdmin extends javax.swing.JFrame {
             DAO dao = new DAO();
             if(dao.existeAdmin(usuario)){
                 JOptionPane.showMessageDialog(null, "Bem vindo!"); 
+                GerenciamentoAdmin gerAdmin = new GerenciamentoAdmin();
+                gerAdmin.setVisible(true);
+                this.dispose();
             }
             else{
                 JOptionPane.showMessageDialog(null, "Usuário invalido");

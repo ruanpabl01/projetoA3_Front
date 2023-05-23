@@ -48,6 +48,11 @@ public class CadastroCliente extends javax.swing.JFrame {
                 jButton1CadastrarCliMouseClicked(evt);
             }
         });
+        jButton1CadastrarCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1CadastrarCliActionPerformed(evt);
+            }
+        });
 
         senhaPasswordField.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
 
@@ -100,6 +105,10 @@ public class CadastroCliente extends javax.swing.JFrame {
         telaInicio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1CadastrarCliMouseClicked
+
+    private void jButton1CadastrarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1CadastrarCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1CadastrarCliActionPerformed
 
     /**
      * @param args the command line arguments

@@ -110,6 +110,9 @@ public class LoginRestaurante extends javax.swing.JFrame {
             else{
                 JOptionPane.showMessageDialog(null, "Usuário invalido");
             }
+            GerenciamentoRestaurantes gerRest = new GerenciamentoRestaurantes(login);
+            gerRest.setVisible(true);
+            this.dispose();
         
         }
         catch(Exception e){
