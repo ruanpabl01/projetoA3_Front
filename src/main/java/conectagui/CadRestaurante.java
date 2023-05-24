@@ -16,20 +16,32 @@ public class CadRestaurante {
     private String senhaRestaurante;
     private String cupons;
     private int nota;
-    
-    public int getNota() {
-        return nota;
-    }
-
-    public void setNota(int nota) {
-        this.nota = nota;
-    }
+    private int notaAvaliacao;
+    private String comentario;
+    private String loginAvaliador;
     
     public CadRestaurante(String nomeRestaurante, String emailRestaurante, String senhaRestaurante, int nota){
         this.nomeRestaurante = nomeRestaurante;
         this.emailRestaurante = emailRestaurante;
         this.senhaRestaurante = senhaRestaurante;
         this.nota = nota;
+    }
+    
+    public CadRestaurante(String nomeRestaurante, String emailRestaurante, int notaAvaliacao, String comentario, String cupom, String login){
+        this.nomeRestaurante = nomeRestaurante;
+        this.emailRestaurante = emailRestaurante;
+        this.notaAvaliacao = notaAvaliacao;
+        this.comentario = comentario;
+        this.cupons = cupom;
+        this.loginAvaliador = login;
+    }
+
+    public String getLoginAvaliador() {
+        return loginAvaliador;
+    }
+
+    public void setLoginAvaliador(String loginAvaliador) {
+        this.loginAvaliador = loginAvaliador;
     }
     
     public CadRestaurante(String nomeRestaurante, String emailRestaurante, int nota){
@@ -52,6 +64,38 @@ public class CadRestaurante {
     public CadRestaurante(String nomeRestaurante, String cnpjRestaurante){
         this.nomeRestaurante = nomeRestaurante;
         this.emailRestaurante = cnpjRestaurante;
+    }
+
+    public String getCupons() {
+        return cupons;
+    }
+
+    public void setCupons(String cupons) {
+        this.cupons = cupons;
+    }
+
+    public int getNotaAvaliacao() {
+        return notaAvaliacao;
+    }
+
+    public void setNotaAvaliacao(int notaAvaliacao) {
+        this.notaAvaliacao = notaAvaliacao;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+    
+    public int getNota() {
+        return nota;
+    }
+
+    public void setNota(int nota) {
+        this.nota = nota;
     }
 
     public String getNomeRestaurante() {

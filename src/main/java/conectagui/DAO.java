@@ -109,6 +109,24 @@ public class DAO {
         + restaurante.getEmailRestaurante() + ", " + restaurante.getNota());
     }
     
+    //Inserir no registro restaurante da tabela de restaurantes a avaliação realizada. A média e a verificação se o cupom é válido deve ser feita aqui.
+    public void atualizarAvaliacaoRestaurante (CadRestaurante restaurante) throws Exception{ 
+//        String sql = "UPDATE tb_curso SET nome = ?, tipo = ? WHERE id = ?"; 
+//        try (Connection conexao = ConexaoBD.obterConexao(); 
+//                PreparedStatement ps = conexao.prepareStatement(sql)){ 
+//            ps.setString (1, curso.getNome()); 
+//            ps.setString (2, curso.getTipo()); 
+//            ps.setInt (3, curso.getId()); 
+//            ps.execute(); 
+//        } 
+               System.out.println("Avaliação registrada (classe DAO): " 
+                    + "\nNome do restaurante: " + restaurante.getNomeRestaurante() 
+                    + "\nCNPJ do restaurante: " + restaurante.getEmailRestaurante()
+                    + "\nAvaliação dada: " + restaurante.getNotaAvaliacao()
+                    + "\nComentário inserido: " + restaurante.getLoginAvaliador() + " escreveu " + restaurante.getComentario()
+                    + "\nCupom informado: " + restaurante.getCupons());
+    }
+    
     //##################################################MÉTODOS################################################################################
      
     //Realiza uma busca por CNPJ no banco (base de restaurantes cadastrados) e retorna nome;

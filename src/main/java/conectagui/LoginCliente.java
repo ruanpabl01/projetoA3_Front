@@ -111,7 +111,10 @@ public class LoginCliente extends javax.swing.JFrame {
             LoginUsuario usuario = new LoginUsuario(login,senha);
             DAO dao = new DAO();
             if(dao.existeCliente(usuario)){
-                JOptionPane.showMessageDialog(null, "Bem vindo!");         
+                JOptionPane.showMessageDialog(null, "Bem vindo!");
+                GerenciamentoCliente gerCliente = new GerenciamentoCliente(login);
+                gerCliente.setVisible(true);
+                this.dispose();
             }
             else{
                 JOptionPane.showMessageDialog(null, "Usuário invalido");
