@@ -12,6 +12,7 @@ public class CadCliente {
     private String nomeCliente;
     private String emailCliente;
     private String senhaCliente;
+    private String cupomCliente;
     
     public CadCliente(String nomeCliente, String emailCliente, String senhaCliente){
         this.nomeCliente = nomeCliente;

@@ -28,6 +28,7 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
 
         jButton1pendAprov = new javax.swing.JButton();
         jButton1restCadastrados = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +46,13 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -53,7 +61,8 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
                 .addContainerGap(94, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1pendAprov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1restCadastrados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1restCadastrados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(90, 90, 90))
         );
         layout.setVerticalGroup(
@@ -63,7 +72,9 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
                 .addComponent(jButton1pendAprov)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1restCadastrados)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         pack();
@@ -82,6 +93,13 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
         listaRC.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1restCadastradosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        TelaInicio telaInicio = new TelaInicio();
+        telaInicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,6 +137,7 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1pendAprov;
     private javax.swing.JButton jButton1restCadastrados;
     // End of variables declaration//GEN-END:variables

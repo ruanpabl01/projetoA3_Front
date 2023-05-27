@@ -112,7 +112,9 @@ public class LoginCliente extends javax.swing.JFrame {
             DAO dao = new DAO();
             if(dao.existeCliente(usuario)){
                 JOptionPane.showMessageDialog(null, "Bem vindo!");
+//                GerenciamentoCliente gerCliente = new GerenciamentoCliente(login);
                 GerenciamentoCliente gerCliente = new GerenciamentoCliente(login);
+  
                 gerCliente.setVisible(true);
                 this.dispose();
             }

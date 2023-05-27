@@ -195,7 +195,7 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
             for (int i = 0; i != restaurantes.length; i++) {
                 listaDados.add(
                         " Nome do restaurante: " + restaurantes[i].getNomeRestaurante() + 
-                        " | CNPJ do restaurante: " + restaurantes[i].getEmailRestaurante() +
+                        " | CNPJ do restaurante: " + restaurantes[i].getCnpjRestaurante() +
                         " | Nota do restaurante: " + restaurantes[i].getNota());
             }
             for (int i = 0; i != restaurantes.length; i++) {
@@ -209,7 +209,7 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
 
     public void exibeSelecionado(int index) {
         jTextField1nomeRest.setText(restaurantes[index - 1].getNomeRestaurante());
-        jTextField2cnpjRest.setText(restaurantes[index - 1].getEmailRestaurante());
+        jTextField2cnpjRest.setText(restaurantes[index - 1].getCnpjRestaurante());
         jTextField3notaRest.setText(Integer.toString(restaurantes[index - 1].getNota()));
     }
 

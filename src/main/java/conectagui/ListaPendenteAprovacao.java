@@ -41,6 +41,7 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
         jButton1aprovar = new javax.swing.JButton();
         jButton2reprovar = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,21 +75,31 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1aprovar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
-                        .addComponent(jButton2reprovar))
-                    .addComponent(jTextField1nomeRest)
-                    .addComponent(jTextField2cnpjRest)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addGap(167, 167, 167)
+                        .addComponent(jButton2reprovar)
+                        .addGap(183, 183, 183)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jComboBox1, 0, 572, Short.MAX_VALUE)
+                        .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +113,8 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1aprovar)
-                    .addComponent(jButton2reprovar))
+                    .addComponent(jButton2reprovar)
+                    .addComponent(jButton1))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
 
@@ -155,6 +167,13 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2reprovarMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        GerenciamentoAdmin gerAdmin = new GerenciamentoAdmin();
+        gerAdmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     //Chama método no DAO para montar lista de restaurantes e retornar.
     private void retornaRestaurantesPendAprov() {
         try {
@@ -199,6 +218,7 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1aprovar;
     private javax.swing.JButton jButton2reprovar;
     private javax.swing.JComboBox<String> jComboBox1;

@@ -31,7 +31,9 @@ public class GerenciamentoRestaurantes extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jButton2gerarCupom = new javax.swing.JButton();
+        jButton1avaliarRest = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,10 +44,24 @@ public class GerenciamentoRestaurantes extends javax.swing.JFrame {
             }
         });
 
-        jButton2gerarCupom.setText("Gerar cupom");
-        jButton2gerarCupom.addActionListener(new java.awt.event.ActionListener() {
+        jButton1avaliarRest.setText("Inserir avaliação");
+        jButton1avaliarRest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2gerarCupomActionPerformed(evt);
+                jButton1avaliarRestActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Validar cupom");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -54,20 +70,26 @@ public class GerenciamentoRestaurantes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
+                .addGap(111, 111, 111)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2gerarCupom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(135, 135, 135))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                    .addComponent(jButton1avaliarRest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addGap(95, 95, 95)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2gerarCupom)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1avaliarRest)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
@@ -80,11 +102,33 @@ public class GerenciamentoRestaurantes extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2gerarCupomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2gerarCupomActionPerformed
+    private void jButton1avaliarRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1avaliarRestActionPerformed
         // TODO add your handling code here:
-        UUID uuid = UUID.randomUUID();
-        JOptionPane.showMessageDialog(null, "Cupom gerado: " + uuid);
-    }//GEN-LAST:event_jButton2gerarCupomActionPerformed
+        ListaRestaurantesAvaliar listRestAval = new ListaRestaurantesAvaliar(cnpj);
+        listRestAval.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1avaliarRestActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        TelaInicio telaInicio = new TelaInicio();
+        telaInicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String cupomCliente = JOptionPane.showInputDialog(null, "Digite o cupom");
+        String identCliente = JOptionPane.showInputDialog(null, "Digite o e-mail do cliente");
+        DAO dao = new DAO();
+        if(dao.validaCupom(identCliente, cupomCliente)){
+            JOptionPane.showMessageDialog(null, "Cupom válido!", "Alerta", JOptionPane.WARNING_MESSAGE);
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Cupom inválido!", "Alerta", JOptionPane.WARNING_MESSAGE);
+
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,6 +168,8 @@ public class GerenciamentoRestaurantes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2gerarCupom;
+    private javax.swing.JButton jButton1avaliarRest;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }

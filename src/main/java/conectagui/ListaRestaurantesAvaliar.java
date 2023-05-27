@@ -58,7 +58,8 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1comentario = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1cupom = new javax.swing.JTextField();
+        jTextField1usuarioAvaliador = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -172,41 +173,51 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
 
         jLabel1.setText("Marque o checkbox caso o restaurante atenda ao requisito. Cada checkbox vale um ponto a mais na nota do restaurante.");
 
-        jTextField1cupom.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Cupom")));
+        jTextField1usuarioAvaliador.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Login avaliador")));
+
+        jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3notaRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, 776, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                            .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1cupom))
+                            .addComponent(jTextField3notaRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                            .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                            .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, 776, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBox6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane1)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField1usuarioAvaliador)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(356, 356, 356)
+                        .addComponent(jButton2avaliar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
                 .addContainerGap(26, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2avaliar)
-                .addGap(379, 379, 379))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +231,7 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField3notaRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1cupom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField1usuarioAvaliador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -246,7 +257,9 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2avaliar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2avaliar)
+                    .addComponent(jButton1))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -267,9 +280,9 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
         String comentario = jTextArea1comentario.getText();
-        String cupom = jTextField1cupom.getText();
+        String emailAvaliador = jTextField1usuarioAvaliador.getText();
 
-        CadRestaurante restaurante = new CadRestaurante(nomeRestaurante, cnpjRestaurante, avaliacao, comentario, cupom, login);
+        CadRestaurante restaurante = new CadRestaurante(nomeRestaurante, cnpjRestaurante, avaliacao, comentario, emailAvaliador);
         DAO dao = new DAO();
         try {
             dao.atualizarAvaliacaoRestaurante(restaurante);
@@ -277,8 +290,8 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         } catch (Exception ex) {
 
         }
-        GerenciamentoCliente telaGerCliente = new GerenciamentoCliente(login);
-        telaGerCliente.setVisible(true);
+        GerenciamentoRestaurantes telaGerRest = new GerenciamentoRestaurantes(login);
+        telaGerRest.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2avaliarActionPerformed
 
@@ -396,17 +409,30 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckBox10ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        GerenciamentoRestaurantes gerRest = new GerenciamentoRestaurantes(login);
+        gerRest.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     //Chama método no DAO para montar lista de restaurantes e retornar.
     private void retornaListaRestaurantes() {
         try {
             DAO dao = new DAO();
             restaurantes = dao.retornaListaRestaurantesCadastrados();
             List<String> listaDados = new ArrayList<>();
+
             for (int i = 0; i != restaurantes.length; i++) {
-                listaDados.add(
-                        " Nome do restaurante: " + restaurantes[i].getNomeRestaurante()
-                        + " | CNPJ do restaurante: " + restaurantes[i].getEmailRestaurante()
-                        + " | Nota do restaurante: " + restaurantes[i].getNota());
+                if (restaurantes[i].getCnpjRestaurante().equals(login)) {
+                    listaDados.add(
+                            " Nome do restaurante: " + restaurantes[i].getNomeRestaurante()
+                            + " | CNPJ do restaurante: " + restaurantes[i].getCnpjRestaurante()
+                            + " | Nota do restaurante: " + restaurantes[i].getNota()
+                    );
+                }
+
             }
             for (int i = 0; i != restaurantes.length; i++) {
                 jComboBox1.addItem(listaDados.get(i));
@@ -419,7 +445,7 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
 
     public void exibeSelecionado(int index) {
         jTextField1nomeRest.setText(restaurantes[index - 1].getNomeRestaurante());
-        jTextField2cnpjRest.setText(restaurantes[index - 1].getEmailRestaurante());
+        jTextField2cnpjRest.setText(restaurantes[index - 1].getCnpjRestaurante());
         jTextField3notaRest.setText(Integer.toString(restaurantes[index - 1].getNota()));
     }
 
@@ -443,6 +469,7 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2avaliar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
@@ -458,8 +485,8 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1comentario;
-    private javax.swing.JTextField jTextField1cupom;
     private javax.swing.JTextField jTextField1nomeRest;
+    private javax.swing.JTextField jTextField1usuarioAvaliador;
     private javax.swing.JTextField jTextField2cnpjRest;
     private javax.swing.JTextField jTextField3notaRest;
     // End of variables declaration//GEN-END:variables

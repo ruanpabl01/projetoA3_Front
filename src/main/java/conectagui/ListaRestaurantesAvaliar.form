@@ -28,39 +28,44 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jTextField3notaRest" alignment="0" pref="776" max="32767" attributes="0"/>
-                  <Component id="jTextField2cnpjRest" alignment="0" pref="776" max="32767" attributes="0"/>
-                  <Component id="jTextField1nomeRest" alignment="0" pref="776" max="32767" attributes="0"/>
-                  <Component id="jComboBox1" alignment="0" pref="776" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jCheckBox1" alignment="0" pref="384" max="32767" attributes="0"/>
-                          <Component id="jCheckBox3" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckBox2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckBox4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jCheckBox5" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jCheckBox6" max="32767" attributes="0"/>
-                          <Component id="jCheckBox7" max="32767" attributes="0"/>
-                          <Component id="jCheckBox8" max="32767" attributes="0"/>
-                          <Component id="jCheckBox9" max="32767" attributes="0"/>
-                          <Component id="jCheckBox10" max="32767" attributes="0"/>
+                          <Component id="jTextField3notaRest" alignment="0" pref="776" max="32767" attributes="0"/>
+                          <Component id="jTextField2cnpjRest" alignment="0" pref="776" max="32767" attributes="0"/>
+                          <Component id="jTextField1nomeRest" alignment="0" pref="776" max="32767" attributes="0"/>
+                          <Component id="jComboBox1" alignment="0" pref="776" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jCheckBox1" alignment="0" pref="384" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox4" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox5" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jCheckBox6" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox7" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox8" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox9" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox10" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jScrollPane1" max="32767" attributes="0"/>
+                          <Component id="jLabel1" max="32767" attributes="0"/>
+                          <Component id="jTextField1usuarioAvaliador" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
-                  <Component id="jLabel1" max="32767" attributes="0"/>
-                  <Component id="jTextField1cupom" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="356" max="-2" attributes="0"/>
+                      <Component id="jButton2avaliar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="26" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton2avaliar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="379" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,7 +81,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTextField3notaRest" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jTextField1cupom" min="-2" max="-2" attributes="0"/>
+              <Component id="jTextField1usuarioAvaliador" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -107,7 +112,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton2avaliar" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButton2avaliar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="14" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -284,18 +292,26 @@
         <Property name="text" type="java.lang.String" value="Marque o checkbox caso o restaurante atenda ao requisito. Cada checkbox vale um ponto a mais na nota do restaurante."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1cupom">
+    <Component class="javax.swing.JTextField" name="jTextField1usuarioAvaliador">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder>
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Cupom"/>
+                <TitledBorder title="Login avaliador"/>
               </Border>
             </TitledBorder>
           </Border>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Voltar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

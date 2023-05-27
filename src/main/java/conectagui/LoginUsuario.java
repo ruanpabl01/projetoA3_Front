@@ -10,6 +10,10 @@ public class LoginUsuario {
         this.senha=senha;
     }
 
+    LoginUsuario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public String getNome() {
         return nome;
     }

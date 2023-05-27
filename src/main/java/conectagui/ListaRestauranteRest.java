@@ -25,7 +25,7 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
         DAO dao = new DAO();
         restaurantes = dao.retornaListaRestaurantesCadastrados();
         for(int index = 0; index != restaurantes.length; index++){
-            if(restaurantes[index].getEmailRestaurante().equals(cnpj)){
+            if(restaurantes[index].getCnpjRestaurante().equals(cnpj)){
                 jTextField1nomeRest.setText(restaurantes[index].getNomeRestaurante());
                 jTextField3notaRest.setText(Integer.toString(restaurantes[index].getNota()));
             }
@@ -46,6 +46,7 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
         jTextField3notaRest = new javax.swing.JTextField();
         jButton1atualizar = new javax.swing.JButton();
         jButton2deletar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,23 +82,29 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1nomeRest)
-                            .addComponent(jTextField2cnpjRest)
-                            .addComponent(jTextField3notaRest, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
                         .addComponent(jButton1atualizar)
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton2deletar)))
+                        .addGap(56, 56, 56)
+                        .addComponent(jButton2deletar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addComponent(jTextField1nomeRest)
+                    .addComponent(jTextField2cnpjRest)
+                    .addComponent(jTextField3notaRest, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -112,7 +119,8 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1atualizar)
-                    .addComponent(jButton2deletar))
+                    .addComponent(jButton2deletar)
+                    .addComponent(jButton1))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
 
@@ -169,6 +177,13 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2deletarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        GerenciamentoRestaurantes gerRest = new GerenciamentoRestaurantes(cnpj);
+        gerRest.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -205,6 +220,7 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1atualizar;
     private javax.swing.JButton jButton2deletar;
     private javax.swing.JTextField jTextField1nomeRest;
