@@ -29,13 +29,11 @@ public class TelaInicio extends javax.swing.JFrame {
 
         jButtonSouCliente = new javax.swing.JButton();
         jButton2SouRest = new javax.swing.JButton();
-        jButton3CadastroCliente = new javax.swing.JButton();
-        jButton1CadastroRest = new javax.swing.JButton();
-        jButton1loginAdmin = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonSouCliente.setLabel("Já sou cliente");
+        jButtonSouCliente.setText("Sou cliente");
         jButtonSouCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonSouClienteMouseClicked(evt);
@@ -47,36 +45,17 @@ public class TelaInicio extends javax.swing.JFrame {
             }
         });
 
-        jButton2SouRest.setLabel("Já sou restaurante");
+        jButton2SouRest.setText("Sou restaurante");
         jButton2SouRest.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2SouRestMouseClicked(evt);
             }
         });
 
-        jButton3CadastroCliente.setText("Quero me cadastrar");
-        jButton3CadastroCliente.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3CadastroClienteMouseClicked(evt);
-            }
-        });
-
-        jButton1CadastroRest.setText("Quero cadastrar meu restaurante");
-        jButton1CadastroRest.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1CadastroRestMouseClicked(evt);
-            }
-        });
-
-        jButton1loginAdmin.setText("Administrador");
-        jButton1loginAdmin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1loginAdminMouseClicked(evt);
-            }
-        });
-        jButton1loginAdmin.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Cadastre-se");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1loginAdminActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -86,35 +65,28 @@ public class TelaInicio extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(86, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButtonSouCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3CadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1CadastroRest)
-                        .addComponent(jButton2SouRest, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1loginAdmin))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonSouCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                    .addComponent(jButton2SouRest, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(80, 80, 80))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1CadastroRest, jButton1loginAdmin, jButton2SouRest, jButton3CadastroCliente, jButtonSouCliente});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton2SouRest, jButtonSouCliente});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(61, 61, 61)
                 .addComponent(jButtonSouCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2SouRest, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3CadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1CadastroRest, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1loginAdmin)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1CadastroRest, jButton1loginAdmin, jButton2SouRest, jButton3CadastroCliente, jButtonSouCliente});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton2SouRest, jButtonSouCliente});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,31 +112,12 @@ public class TelaInicio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2SouRestMouseClicked
 
-    //Chama tela de cadastro de restaurante
-    private void jButton3CadastroClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3CadastroClienteMouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CadastroCliente cadastroCliente = new CadastroCliente();
-        cadastroCliente.setVisible(true);
+        Cadastro cadastro = new Cadastro();
+        cadastro.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton3CadastroClienteMouseClicked
-
-    private void jButton1CadastroRestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1CadastroRestMouseClicked
-        // TODO add your handling code here:
-        CadastroRestaurante cadastroRest = new CadastroRestaurante();
-        cadastroRest.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1CadastroRestMouseClicked
-
-    private void jButton1loginAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1loginAdminMouseClicked
-        // TODO add your handling code here:
-        LoginAdmin loginAdmin = new LoginAdmin();
-        loginAdmin.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1loginAdminMouseClicked
-
-    private void jButton1loginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1loginAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1loginAdminActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
  
     /**
      * @param args the command line arguments
@@ -202,10 +155,8 @@ public class TelaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1CadastroRest;
-    private javax.swing.JButton jButton1loginAdmin;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2SouRest;
-    private javax.swing.JButton jButton3CadastroCliente;
     private javax.swing.JButton jButtonSouCliente;
     // End of variables declaration//GEN-END:variables
 }

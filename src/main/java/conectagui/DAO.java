@@ -12,7 +12,7 @@ import static javax.xml.stream.XMLStreamConstants.CHARACTERS;
 public class DAO {
 
     //Realiza a busca na tabela de 'Clientes' do BD
-    public boolean existeCliente(LoginUsuario usuario) throws Exception {
+    public boolean existeCliente(DadosUsuario usuario) throws Exception {
 //        String sql="SELECT * FROM tb_usuario WHERE nome=? AND senha=?";
 //        try(Connection conn=ConexaoBD.obterConexao()){
 //                PreparedStatement ps = conn.prepareStatement(sql);
@@ -26,7 +26,7 @@ public class DAO {
     }
 
     //Realiza a busca na tabela 'Restaurantes' do BD
-    public boolean existeRestaurante(LoginUsuario usuario) throws Exception {
+    public boolean existeRestaurante(DadosUsuario usuario) throws Exception {
 //        String sql="SELECT * FROM tb_usuario WHERE nome=? AND senha=?";
 //        try(Connection conn=ConexaoBD.obterConexao()){
 //                PreparedStatement ps = conn.prepareStatement(sql);
@@ -40,7 +40,7 @@ public class DAO {
     }
 
     //Realiza a busca na tabela 'Admins' do BD
-    public boolean existeAdmin(LoginUsuario usuario) throws Exception {
+    public boolean existeAdmin(DadosUsuario usuario) throws Exception {
 //        String sql="SELECT * FROM tb_usuario WHERE nome=? AND senha=?";
 //        try(Connection conn=ConexaoBD.obterConexao()){
 //                PreparedStatement ps = conn.prepareStatement(sql);
@@ -74,7 +74,7 @@ public class DAO {
 //            ps.execute();
 //        }
         System.out.println("Cadastro realizado (classe DAO)" + restaurante.getNomeRestaurante() + ", "
-                + restaurante.getCnpjRestaurante() + restaurante.getSenhaRestaurante());
+                + restaurante.getCnpjRestaurante() + ", " + restaurante.getSenhaRestaurante());
     }
 
     //Recebe o CNPJ cujo cadastro foi reprovado. O restaurante deve ser removido da tabela de restaurantes pendentes aprovação.

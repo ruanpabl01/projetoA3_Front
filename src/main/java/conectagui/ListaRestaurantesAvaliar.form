@@ -32,13 +32,13 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField3notaRest" alignment="0" pref="776" max="32767" attributes="0"/>
-                          <Component id="jTextField2cnpjRest" alignment="0" pref="776" max="32767" attributes="0"/>
-                          <Component id="jTextField1nomeRest" alignment="0" pref="776" max="32767" attributes="0"/>
-                          <Component id="jComboBox1" alignment="0" pref="776" max="32767" attributes="0"/>
+                          <Component id="jTextField3notaRest" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextField2cnpjRest" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextField1nomeRest" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jComboBox1" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jCheckBox1" alignment="0" pref="384" max="32767" attributes="0"/>
+                                  <Component id="jCheckBox1" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jCheckBox3" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jCheckBox2" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jCheckBox4" alignment="0" max="32767" attributes="0"/>
@@ -55,17 +55,17 @@
                           </Group>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                           <Component id="jLabel1" max="32767" attributes="0"/>
-                          <Component id="jTextField1usuarioAvaliador" max="32767" attributes="0"/>
+                          <Component id="jTextField1usuarioAvaliador" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="356" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="488" max="-2" attributes="0"/>
                       <Component id="jButton2avaliar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -185,7 +185,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jCheckBox1"/>
+        <Property name="text" type="java.lang.String" value="O restaurante utiliza ingredientes org&#xe2;nicos e de origem local em seus pratos. "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
@@ -193,7 +193,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jCheckBox2"/>
+        <Property name="text" type="java.lang.String" value="O restaurante possui op&#xe7;&#xf5;es vegetarianas e veganas no card&#xe1;pio. "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox2ActionPerformed"/>
@@ -201,7 +201,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jCheckBox3"/>
+        <Property name="text" type="java.lang.String" value="O restaurante adota pr&#xe1;ticas de economia de &#xe1;gua, como torneiras e descargas de baixo consumo. "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox3ActionPerformed"/>
@@ -209,7 +209,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jCheckBox4"/>
+        <Property name="text" type="java.lang.String" value="O restaurante utiliza energia renov&#xe1;vel, como pain&#xe9;is solares ou energia e&#xf3;lica. "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox4ActionPerformed"/>
@@ -217,7 +217,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jCheckBox5"/>
+        <Property name="text" type="java.lang.String" value="O restaurante possui programa de reciclagem e separa&#xe7;&#xe3;o adequada dos res&#xed;duos. "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox5ActionPerformed"/>
@@ -225,7 +225,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jCheckBox6"/>
+        <Property name="text" type="java.lang.String" value="O restaurante evita o uso de embalagens descart&#xe1;veis, preferindo op&#xe7;&#xf5;es sustent&#xe1;veis, como embalagens biodegrad&#xe1;veis. "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox6ActionPerformed"/>
@@ -233,7 +233,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jCheckBox7"/>
+        <Property name="text" type="java.lang.String" value="O restaurante utiliza m&#xe9;todos de cultivo sustent&#xe1;veis para os ingredientes frescos, como agricultura org&#xe2;nica ou hidroponia. "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox7ActionPerformed"/>
@@ -241,7 +241,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jCheckBox8"/>
+        <Property name="text" type="java.lang.String" value="O restaurante promove a conscientiza&#xe7;&#xe3;o dos clientes sobre a sustentabilidade, por meio de materiais informativos ou campanhas educativas. "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox8ActionPerformed"/>
@@ -249,7 +249,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jCheckBox9"/>
+        <Property name="text" type="java.lang.String" value="O restaurante faz doa&#xe7;&#xf5;es de alimentos n&#xe3;o utilizados para institui&#xe7;&#xf5;es de caridade locais, reduzindo o desperd&#xed;cio. "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox9ActionPerformed"/>
@@ -257,7 +257,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox10">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jCheckBox10"/>
+        <Property name="text" type="java.lang.String" value="O restaurante prioriza fornecedores que seguem pr&#xe1;ticas sustent&#xe1;veis em suas cadeias de produ&#xe7;&#xe3;o.    "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox10ActionPerformed"/>

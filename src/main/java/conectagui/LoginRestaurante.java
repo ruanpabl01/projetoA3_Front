@@ -102,7 +102,7 @@ public class LoginRestaurante extends javax.swing.JFrame {
         String senha = new String(senhaJPasswordField.getPassword());
 
         try{
-            LoginUsuario usuario = new LoginUsuario(login,senha);
+            DadosUsuario usuario = new DadosUsuario(login,senha);
             DAO dao = new DAO();
             if(dao.existeRestaurante(usuario)){
                 JOptionPane.showMessageDialog(null, "Bem vindo!");              

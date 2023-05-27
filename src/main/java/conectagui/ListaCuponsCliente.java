@@ -11,12 +11,13 @@ import java.util.List;
  * @author ruan.pablo.a.gomes
  */
 public class ListaCuponsCliente extends javax.swing.JFrame {
-
+    String login;
     /**
      * Creates new form ListaCuponsCliente
      */
     public ListaCuponsCliente(String login) {
         initComponents();
+        this.login = login;
         DAO dao = new DAO();
         List<String> x = dao.retornaCuponsCliente(login);
 
@@ -50,9 +51,15 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
         jTextArea1listaCupons.setEditable(false);
         jTextArea1listaCupons.setColumns(20);
         jTextArea1listaCupons.setRows(5);
+        jTextArea1listaCupons.setOpaque(false);
         jScrollPane1.setViewportView(jTextArea1listaCupons);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,6 +87,11 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        GerenciamentoCliente gerCliente = new GerenciamentoCliente(login);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

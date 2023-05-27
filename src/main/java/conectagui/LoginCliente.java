@@ -108,15 +108,19 @@ public class LoginCliente extends javax.swing.JFrame {
         String senha = new String(senhaJPasswordField.getPassword());
 
         try{
-            LoginUsuario usuario = new LoginUsuario(login,senha);
+            DadosUsuario usuario = new DadosUsuario(login,senha);
             DAO dao = new DAO();
             if(dao.existeCliente(usuario)){
                 JOptionPane.showMessageDialog(null, "Bem vindo!");
-//                GerenciamentoCliente gerCliente = new GerenciamentoCliente(login);
-                GerenciamentoCliente gerCliente = new GerenciamentoCliente(login);
-  
-                gerCliente.setVisible(true);
-                this.dispose();
+                if(usuario.getNome().equals("admin@admin.com")){
+                    GerenciamentoAdmin gerAdmin = new GerenciamentoAdmin();
+                    gerAdmin.setVisible(true);
+                    this.dispose();
+                }else{
+                    GerenciamentoCliente gerCliente = new GerenciamentoCliente(login);
+                    gerCliente.setVisible(true);
+                    this.dispose();
+                }
             }
             else{
                 JOptionPane.showMessageDialog(null, "Usuário invalido");

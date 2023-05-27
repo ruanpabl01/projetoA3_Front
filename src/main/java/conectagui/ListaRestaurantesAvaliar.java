@@ -96,70 +96,70 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         jTextField2cnpjRest.setEditable(false);
         jTextField2cnpjRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "CNPJ do restaurante"));
 
-        jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.setText("O restaurante utiliza ingredientes orgânicos e de origem local em seus pratos. ");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox1ActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("jCheckBox2");
+        jCheckBox2.setText("O restaurante possui opções vegetarianas e veganas no cardápio. ");
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox2ActionPerformed(evt);
             }
         });
 
-        jCheckBox3.setText("jCheckBox3");
+        jCheckBox3.setText("O restaurante adota práticas de economia de água, como torneiras e descargas de baixo consumo. ");
         jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox3ActionPerformed(evt);
             }
         });
 
-        jCheckBox4.setText("jCheckBox4");
+        jCheckBox4.setText("O restaurante utiliza energia renovável, como painéis solares ou energia eólica. ");
         jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox4ActionPerformed(evt);
             }
         });
 
-        jCheckBox5.setText("jCheckBox5");
+        jCheckBox5.setText("O restaurante possui programa de reciclagem e separação adequada dos resíduos. ");
         jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox5ActionPerformed(evt);
             }
         });
 
-        jCheckBox6.setText("jCheckBox6");
+        jCheckBox6.setText("O restaurante evita o uso de embalagens descartáveis, preferindo opções sustentáveis, como embalagens biodegradáveis. ");
         jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox6ActionPerformed(evt);
             }
         });
 
-        jCheckBox7.setText("jCheckBox7");
+        jCheckBox7.setText("O restaurante utiliza métodos de cultivo sustentáveis para os ingredientes frescos, como agricultura orgânica ou hidroponia. ");
         jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox7ActionPerformed(evt);
             }
         });
 
-        jCheckBox8.setText("jCheckBox8");
+        jCheckBox8.setText("O restaurante promove a conscientização dos clientes sobre a sustentabilidade, por meio de materiais informativos ou campanhas educativas. ");
         jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox8ActionPerformed(evt);
             }
         });
 
-        jCheckBox9.setText("jCheckBox9");
+        jCheckBox9.setText("O restaurante faz doações de alimentos não utilizados para instituições de caridade locais, reduzindo o desperdício. ");
         jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox9ActionPerformed(evt);
             }
         });
 
-        jCheckBox10.setText("jCheckBox10");
+        jCheckBox10.setText("O restaurante prioriza fornecedores que seguem práticas sustentáveis em suas cadeias de produção.    ");
         jCheckBox10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox10ActionPerformed(evt);
@@ -191,13 +191,13 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3notaRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                            .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                            .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, 776, Short.MAX_VALUE)
+                            .addComponent(jTextField3notaRest)
+                            .addComponent(jTextField2cnpjRest)
+                            .addComponent(jTextField1nomeRest)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
+                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -213,11 +213,11 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField1usuarioAvaliador)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(356, 356, 356)
+                        .addGap(488, 488, 488)
                         .addComponent(jButton2avaliar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton1)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

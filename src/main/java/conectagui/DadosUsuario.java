@@ -1,16 +1,16 @@
 package conectagui;
 
 
-public class LoginUsuario {
+public class DadosUsuario {
     private String nome;
     private String senha;
     
-    public LoginUsuario(String nome, String senha){
+    public DadosUsuario(String nome, String senha){
         this.nome=nome;
         this.senha=senha;
     }
 
-    LoginUsuario() {
+    DadosUsuario() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
