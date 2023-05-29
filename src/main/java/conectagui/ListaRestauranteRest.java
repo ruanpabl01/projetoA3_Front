@@ -20,6 +20,7 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
     public ListaRestauranteRest(String cnpj) {
         initComponents();
         this.cnpj = cnpj;
+        setResizable(false);
         jTextField2cnpjRest.setText(cnpj);
         CadRestaurante[] restaurantes;
         DAO dao = new DAO();
@@ -41,32 +42,48 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jTextField1nomeRest = new javax.swing.JTextField();
         jTextField2cnpjRest = new javax.swing.JTextField();
         jTextField3notaRest = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jButton1atualizar = new javax.swing.JButton();
         jButton2deletar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1nomeRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Nome do restaurante"));
+        jPanel1.setPreferredSize(new java.awt.Dimension(476, 513));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField1nomeRest.setBackground(new java.awt.Color(87, 176, 60));
+        jTextField1nomeRest.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextField1nomeRest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1nomeRestActionPerformed(evt);
             }
         });
+        jPanel1.add(jTextField1nomeRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 135, 260, -1));
 
         jTextField2cnpjRest.setEditable(false);
-        jTextField2cnpjRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "CNPJ do restaurante"));
+        jTextField2cnpjRest.setBackground(new java.awt.Color(87, 176, 60));
+        jTextField2cnpjRest.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextField2cnpjRest.setDisabledTextColor(new java.awt.Color(87, 176, 60));
+        jPanel1.add(jTextField2cnpjRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 205, 260, 20));
 
         jTextField3notaRest.setEditable(false);
-        jTextField3notaRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Média do restaurante")));
+        jTextField3notaRest.setBackground(new java.awt.Color(87, 176, 60));
+        jTextField3notaRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
         jTextField3notaRest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3notaRestActionPerformed(evt);
             }
         });
+        jPanel1.add(jTextField3notaRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 297, 260, 20));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\rest_meu_restaurante.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 520));
 
         jButton1atualizar.setText("Atualizar");
         jButton1atualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +91,7 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
                 jButton1atualizarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 373, 160, 30));
 
         jButton2deletar.setText("Deletar");
         jButton2deletar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +99,7 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
                 jButton2deletarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 373, 160, 30));
 
         jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -88,40 +107,19 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, -1, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1atualizar)
-                        .addGap(56, 56, 56)
-                        .addComponent(jButton2deletar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addComponent(jTextField1nomeRest)
-                    .addComponent(jTextField2cnpjRest)
-                    .addComponent(jTextField3notaRest, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField3notaRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1atualizar)
-                    .addComponent(jButton2deletar)
-                    .addComponent(jButton1))
-                .addContainerGap(73, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -223,6 +221,8 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1atualizar;
     private javax.swing.JButton jButton2deletar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1nomeRest;
     private javax.swing.JTextField jTextField2cnpjRest;
     private javax.swing.JTextField jTextField3notaRest;

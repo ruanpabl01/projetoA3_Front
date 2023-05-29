@@ -17,6 +17,7 @@ public class LoginCliente extends javax.swing.JFrame {
      */
     public LoginCliente() {
         initComponents();
+        setResizable(false);
     }
 
     /**
@@ -30,33 +31,23 @@ public class LoginCliente extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
-        senhaJPasswordField = new javax.swing.JPasswordField();
-        loginJButton = new javax.swing.JButton();
-        sairJButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         loginJTextField = new javax.swing.JTextField();
+        senhaJPasswordField = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        sairJButton = new javax.swing.JButton();
+        loginJButton = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(490, 528));
 
-        senhaJPasswordField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite sua senha"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        loginJButton.setText("Entrar");
-        loginJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginJButtonActionPerformed(evt);
-            }
-        });
-
-        sairJButton.setText("Voltar");
-        sairJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sairJButtonActionPerformed(evt);
-            }
-        });
-
+        loginJTextField.setBackground(new java.awt.Color(141, 198, 63));
         loginJTextField.setToolTipText("");
-        loginJTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite seu e-mail"));
+        loginJTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         loginJTextField.setName(""); // NOI18N
         loginJTextField.setSelectedTextColor(new java.awt.Color(185, 178, 178));
         loginJTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -64,38 +55,45 @@ public class LoginCliente extends javax.swing.JFrame {
                 loginJTextFieldActionPerformed(evt);
             }
         });
+        jPanel1.add(loginJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 130, 30));
+        loginJTextField.getAccessibleContext().setAccessibleName("");
+
+        senhaJPasswordField.setBackground(new java.awt.Color(141, 198, 63));
+        senhaJPasswordField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(senhaJPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 140, 30));
+        senhaJPasswordField.getAccessibleContext().setAccessibleName("");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\login_cliente.png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, -3, 480, 530));
+
+        sairJButton.setText("Voltar");
+        sairJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairJButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(sairJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 50));
+
+        loginJButton.setText("Entrar");
+        loginJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginJButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 89, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sairJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(loginJTextField)
-                    .addComponent(senhaJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(loginJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(senhaJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sairJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-
-        senhaJPasswordField.getAccessibleContext().setAccessibleName("");
-        loginJTextField.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,6 +185,8 @@ public class LoginCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JButton loginJButton;

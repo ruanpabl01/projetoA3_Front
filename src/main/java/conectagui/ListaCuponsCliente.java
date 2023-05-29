@@ -4,7 +4,9 @@
  */
 package conectagui;
 
+import static java.awt.Color.BLACK;
 import java.util.List;
+import javax.swing.JLabel;
 
 /**
  *
@@ -18,19 +20,33 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
     public ListaCuponsCliente(String login) {
         initComponents();
         this.login = login;
+        setResizable(false);
         DAO dao = new DAO();
         List<String> x = dao.retornaCuponsCliente(login);
+        
+        JLabel[] labels = new JLabel[5];
+        labels[0] = cupom1;
+        labels[1] = cupom2;
+        labels[2] = cupom3;
+        labels[3] = cupom4;
+        labels[4] = cupom5;
 
-        if (x.size() != 0) {
-            for (int i = 0; i != x.size(); i++) {
-                if (i == 0) {
-                    jTextArea1listaCupons.setText("");
-                }
-                jTextArea1listaCupons.append("\nCupom " + (i + 1) + ": " + x.get(i) + "\n\n");
+        for(int i = 0; i != x.size(); i++){
+            if(labels[i].getText().isEmpty()){
+                labels[i].setText(x.get(i));
             }
-        }else{
-            jTextArea1listaCupons.setText("Poxa, você não possui cupons! \nQue tal frequentar e avaliar mais restaurantes da nossa lista?");
         }
+        
+//        if (x.size() != 0) {
+//            for (int i = 0; i != x.size(); i++) {
+//                if (i == 0) {
+//                    jTextArea1listaCupons.setText("");
+//                }
+//                jTextArea1listaCupons.append("\nCupom " + (i + 1) + ": " + x.get(i) + "\n\n");
+//            }
+//        }else{
+//            jTextArea1listaCupons.setText("Poxa, você não possui cupons! \nQue tal frequentar e avaliar mais restaurantes da nossa lista?");
+//        }
     }
 
     /**
@@ -42,17 +58,30 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1listaCupons = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        cupom1 = new javax.swing.JLabel();
+        cupom2 = new javax.swing.JLabel();
+        cupom3 = new javax.swing.JLabel();
+        cupom4 = new javax.swing.JLabel();
+        cupom5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+
+        jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextArea1listaCupons.setEditable(false);
-        jTextArea1listaCupons.setColumns(20);
-        jTextArea1listaCupons.setRows(5);
-        jTextArea1listaCupons.setOpaque(false);
-        jScrollPane1.setViewportView(jTextArea1listaCupons);
+        jPanel1.setPreferredSize(new java.awt.Dimension(476, 513));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(cupom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 190, 20));
+        jPanel1.add(cupom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 116, 190, 20));
+        jPanel1.add(cupom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 190, 20));
+        jPanel1.add(cupom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 226, 190, 20));
+        jPanel1.add(cupom5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 190, 20));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\cliente_tela_cupom.png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -4, 480, 520));
 
         jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,29 +89,19 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,6 +110,8 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         GerenciamentoCliente gerCliente = new GerenciamentoCliente(login);
+        gerCliente.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -129,8 +150,14 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cupom1;
+    private javax.swing.JLabel cupom2;
+    private javax.swing.JLabel cupom3;
+    private javax.swing.JLabel cupom4;
+    private javax.swing.JLabel cupom5;
     private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1listaCupons;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

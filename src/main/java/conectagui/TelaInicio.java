@@ -4,19 +4,31 @@
  */
 package conectagui;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author ruan.pablo.a.gomes
  */
 public class TelaInicio extends javax.swing.JFrame {
-
     /**
      * Creates new form TelaInicio
      */
-    public TelaInicio() {
+    public TelaInicio(){
         initComponents();
-        DAO dao = new DAO();
-    }
+        setResizable(false);
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,11 +39,28 @@ public class TelaInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jButtonSouCliente = new javax.swing.JButton();
         jButton2SouRest = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.PAGE_AXIS));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\tela_inicio.png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -4, 470, 500));
+
+        jButton1.setText("Cadastre-se");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 204, 50));
 
         jButtonSouCliente.setText("Sou cliente");
         jButtonSouCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -44,6 +73,7 @@ public class TelaInicio extends javax.swing.JFrame {
                 jButtonSouClienteActionPerformed(evt);
             }
         });
+        jPanel1.add(jButtonSouCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 204, 50));
 
         jButton2SouRest.setText("Sou restaurante");
         jButton2SouRest.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -51,42 +81,9 @@ public class TelaInicio extends javax.swing.JFrame {
                 jButton2SouRestMouseClicked(evt);
             }
         });
+        jPanel1.add(jButton2SouRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 204, 50));
 
-        jButton1.setText("Cadastre-se");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonSouCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                    .addComponent(jButton2SouRest, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(80, 80, 80))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton2SouRest, jButtonSouCliente});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jButtonSouCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2SouRest, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton2SouRest, jButtonSouCliente});
+        getContentPane().add(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -95,7 +92,7 @@ public class TelaInicio extends javax.swing.JFrame {
     private void jButtonSouClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSouClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSouClienteActionPerformed
-    
+       
     //Chama a tela 'Login Cliente'
     private void jButtonSouClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSouClienteMouseClicked
         // TODO add your handling code here:
@@ -118,7 +115,7 @@ public class TelaInicio extends javax.swing.JFrame {
         cadastro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
- 
+
     /**
      * @param args the command line arguments
      */
@@ -149,7 +146,7 @@ public class TelaInicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicio().setVisible(true);
+                    new TelaInicio().setVisible(true);
             }
         });
     }
@@ -158,5 +155,7 @@ public class TelaInicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2SouRest;
     private javax.swing.JButton jButtonSouCliente;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

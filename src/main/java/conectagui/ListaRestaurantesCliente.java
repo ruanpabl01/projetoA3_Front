@@ -27,6 +27,7 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
         initComponents();
         this.login = login;
         retornaListaRestaurantes();
+        setResizable(false);
     }
 
     /**
@@ -39,21 +40,47 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
         jTextField1nomeRest = new javax.swing.JTextField();
         jTextField3notaRest = new javax.swing.JTextField();
-        jButton2voltar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jTextField2cnpjRest = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea4comentario = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2voltar = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(600, 600));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jTextField1nomeRest.setEditable(false);
-        jTextField1nomeRest.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome do restaurante"));
+        jTextField1nomeRest.setBackground(new java.awt.Color(87, 176, 60));
+        jTextField1nomeRest.setBorder(null);
+        jPanel1.add(jTextField1nomeRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 82, 340, 30));
 
         jTextField3notaRest.setEditable(false);
-        jTextField3notaRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Média do restaurante"));
+        jTextField3notaRest.setBackground(new java.awt.Color(87, 176, 60));
+        jTextField3notaRest.setBorder(null);
+        jPanel1.add(jTextField3notaRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 340, 30));
+
+        jTextField2cnpjRest.setEditable(false);
+        jTextField2cnpjRest.setBackground(new java.awt.Color(87, 176, 60));
+        jTextField2cnpjRest.setBorder(null);
+        jPanel1.add(jTextField2cnpjRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 136, 340, 30));
+
+        jTextArea4comentario.setEditable(false);
+        jTextArea4comentario.setBackground(new java.awt.Color(176, 217, 163));
+        jTextArea4comentario.setColumns(20);
+        jTextArea4comentario.setRows(5);
+        jTextArea4comentario.setBorder(null);
+        jScrollPane1.setViewportView(jTextArea4comentario);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 540, 200));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\cliente_tela_restCliente.png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, -1));
 
         jButton2voltar.setText("Voltar");
         jButton2voltar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -66,6 +93,7 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
                 jButton2voltarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 60, 60));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clique para expandir" }));
         jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,50 +106,17 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-
-        jTextField2cnpjRest.setEditable(false);
-        jTextField2cnpjRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "CNPJ do restaurante"));
-
-        jTextArea4comentario.setEditable(false);
-        jTextArea4comentario.setColumns(20);
-        jTextArea4comentario.setRows(5);
-        jTextArea4comentario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Comentários"));
-        jScrollPane1.setViewportView(jTextArea4comentario);
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 30, 340, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3notaRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, 776, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(26, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2voltar)
-                .addGap(379, 379, 379))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3notaRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2voltar)
-                .addContainerGap(14, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -207,6 +202,8 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton2voltar;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea4comentario;
     private javax.swing.JTextField jTextField1nomeRest;

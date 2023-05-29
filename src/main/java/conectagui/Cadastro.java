@@ -16,12 +16,12 @@ import javax.swing.border.TitledBorder;
  */
 public class Cadastro extends javax.swing.JFrame {
 
-    TitledBorder titledBorderNome = BorderFactory.createTitledBorder("Digite seu nome");
-    TitledBorder titledBorderEmail = BorderFactory.createTitledBorder("Digite seu e-mail");
-    TitledBorder titledBorderSenha = BorderFactory.createTitledBorder("Digite sua senha");
+//    TitledBorder titledBorderNome = BorderFactory.createTitledBorder("Digite seu nome");
+//    TitledBorder titledBorderEmail = BorderFactory.createTitledBorder("Digite seu e-mail");
+//    TitledBorder titledBorderSenha = BorderFactory.createTitledBorder("Digite sua senha");
 
-    TitledBorder titledBorderNomeRest = BorderFactory.createTitledBorder("Digite o nome do restaurante");
-    TitledBorder titledBorderCNPJ = BorderFactory.createTitledBorder("Digite o CNPJ do restaurante");
+//    TitledBorder titledBorderNomeRest = BorderFactory.createTitledBorder("Digite o nome do restaurante");
+//    TitledBorder titledBorderCNPJ = BorderFactory.createTitledBorder("Digite o CNPJ do restaurante");
 
     /**
      * Creates new form Cadastro
@@ -29,9 +29,12 @@ public class Cadastro extends javax.swing.JFrame {
     public Cadastro() {
         initComponents();
         jCheckBox1Cliente.setSelected(true);
-        jTextField1.setBorder(titledBorderNome);
-        jTextField2.setBorder(titledBorderEmail);
-        jPasswordField1.setBorder(titledBorderSenha);
+        jLabel3.setVisible(false);
+        setResizable(false);
+
+//        jTextField1.setBorder(titledBorderNome);
+//        jTextField2.setBorder(titledBorderEmail);
+//        jPasswordField1.setBorder(titledBorderSenha);
     }
 
     /**
@@ -43,29 +46,50 @@ public class Cadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBox1Cliente = new javax.swing.JCheckBox();
-        jCheckBox2Restaurante = new javax.swing.JCheckBox();
+        jPanel1 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jButton1Cadastrar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jCheckBox2Restaurante = new javax.swing.JCheckBox();
+        jCheckBox1Cliente = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(476, 513));
 
-        jCheckBox1Cliente.setText("Cliente");
-        jCheckBox1Cliente.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setMinimumSize(new java.awt.Dimension(476, 513));
+        jPanel1.setPreferredSize(new java.awt.Dimension(476, 513));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField1.setBackground(new java.awt.Color(87, 176, 60));
+        jTextField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 260, -1));
+
+        jTextField2.setBackground(new java.awt.Color(87, 176, 60));
+        jTextField2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ClienteActionPerformed(evt);
+                jTextField2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 260, -1));
 
-        jCheckBox2Restaurante.setText("Restaurante");
-        jCheckBox2Restaurante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2RestauranteActionPerformed(evt);
-            }
-        });
+        jPasswordField1.setBackground(new java.awt.Color(87, 176, 60));
+        jPasswordField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 260, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\tela_cadastro.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setPreferredSize(new java.awt.Dimension(476, 513));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\tela_cadastro_rest.png")); // NOI18N
+        jLabel3.setText("jLabel1");
+        jLabel3.setPreferredSize(new java.awt.Dimension(476, 513));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jButton1Cadastrar.setText("Cadastrar");
         jButton1Cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,6 +97,7 @@ public class Cadastro extends javax.swing.JFrame {
                 jButton1CadastrarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1Cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 150, 40));
 
         jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,48 +105,38 @@ public class Cadastro extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 50, 40));
+
+        jCheckBox2Restaurante.setText("Restaurante");
+        jCheckBox2Restaurante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2RestauranteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox2Restaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, 30));
+
+        jCheckBox1Cliente.setText("Cliente");
+        jCheckBox1Cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ClienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox1Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 110, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCheckBox1Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                                .addComponent(jCheckBox2Restaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField2)
-                            .addComponent(jPasswordField1)
-                            .addComponent(jTextField1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jButton1Cadastrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1Cliente)
-                    .addComponent(jCheckBox2Restaurante))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1Cadastrar)
-                    .addComponent(jButton1))
-                .addGap(19, 19, 19))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,13 +146,18 @@ public class Cadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jCheckBox1Cliente.isSelected()) {
             jCheckBox2Restaurante.setSelected(false);
-            jTextField1.setBorder(titledBorderNome);
-            jTextField2.setBorder(titledBorderEmail);
+            jLabel3.setVisible(false);
+            jLabel1.setVisible(true);
+//          jTextField1.setBorder(titledBorderNome);
+//          jTextField2.setBorder(titledBorderEmail);
 
         } else {
             jCheckBox2Restaurante.setSelected(true);
-            jTextField1.setBorder(titledBorderNomeRest);
-            jTextField2.setBorder(titledBorderCNPJ);
+            jLabel3.setVisible(true);
+            jLabel1.setVisible(false);
+//            jTextField1.setBorder(titledBorderNomeRest);
+//            jTextField2.setBorder(titledBorderCNPJ);
+            
         }
     }//GEN-LAST:event_jCheckBox1ClienteActionPerformed
 
@@ -145,12 +165,17 @@ public class Cadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jCheckBox2Restaurante.isSelected()) {
             jCheckBox1Cliente.setSelected(false);
-            jTextField1.setBorder(titledBorderNomeRest);
-            jTextField2.setBorder(titledBorderCNPJ);
+            jLabel1.setVisible(false);
+            jLabel3.setVisible(true);
+
+//            jTextField1.setBorder(titledBorderNomeRest);
+//            jTextField2.setBorder(titledBorderCNPJ);
         } else {
             jCheckBox1Cliente.setSelected(true);
-            jTextField1.setBorder(titledBorderNome);
-            jTextField2.setBorder(titledBorderEmail);
+            jLabel1.setVisible(true);
+            jLabel3.setVisible(false);
+//            jTextField1.setBorder(titledBorderNome);
+//            jTextField2.setBorder(titledBorderEmail);
         }
     }//GEN-LAST:event_jCheckBox2RestauranteActionPerformed
 
@@ -189,6 +214,10 @@ public class Cadastro extends javax.swing.JFrame {
         telaInicio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,6 +259,9 @@ public class Cadastro extends javax.swing.JFrame {
     private javax.swing.JButton jButton1Cadastrar;
     private javax.swing.JCheckBox jCheckBox1Cliente;
     private javax.swing.JCheckBox jCheckBox2Restaurante;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
