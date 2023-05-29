@@ -25,6 +25,7 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
         super("Restaurantes");
         initComponents();
         retornaListaRestaurantes();
+        setResizable(false);
     }
 
     /**
@@ -36,43 +37,37 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jTextField1nomeRest = new javax.swing.JTextField();
-        jTextField3notaRest = new javax.swing.JTextField();
-        jButton1deletar = new javax.swing.JButton();
-        jButton2atualizar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jTextField2cnpjRest = new javax.swing.JTextField();
+        jTextField3notaRest = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton2atualizar = new javax.swing.JButton();
+        jButton1deletar = new javax.swing.JButton();
+        jButton1voltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField1nomeRest.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome do restaurante"));
+        jPanel1.setPreferredSize(new java.awt.Dimension(476, 513));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField1nomeRest.setBackground(new java.awt.Color(196, 196, 196));
+        jTextField1nomeRest.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(jTextField1nomeRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 145, 360, -1));
+
+        jTextField2cnpjRest.setBackground(new java.awt.Color(196, 196, 196));
+        jTextField2cnpjRest.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(jTextField2cnpjRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 360, -1));
 
         jTextField3notaRest.setEditable(false);
-        jTextField3notaRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Nota do restaurante"));
+        jTextField3notaRest.setBackground(new java.awt.Color(196, 196, 196));
+        jTextField3notaRest.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(jTextField3notaRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 350, -1));
 
-        jButton1deletar.setText("Deletar");
-        jButton1deletar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1deletarMouseClicked(evt);
-            }
-        });
-        jButton1deletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1deletarActionPerformed(evt);
-            }
-        });
-
-        jButton2atualizar.setText("Atualizar");
-        jButton2atualizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2atualizarMouseClicked(evt);
-            }
-        });
-        jButton2atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2atualizarActionPerformed(evt);
-            }
-        });
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\admin_lista_restaurantes.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -4, 480, 520));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clique para expandir" }));
         jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -85,45 +80,51 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 85, 360, -1));
 
-        jTextField2cnpjRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "CNPJ do restaurante"));
+        jButton2atualizar.setText("Atualizar");
+        jButton2atualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2atualizarMouseClicked(evt);
+            }
+        });
+        jButton2atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2atualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 110, 90));
+
+        jButton1deletar.setText("Deletar");
+        jButton1deletar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1deletarMouseClicked(evt);
+            }
+        });
+        jButton1deletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1deletarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 100, 90));
+
+        jButton1voltar.setText("Voltar");
+        jButton1voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1voltarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 90, 80));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField3notaRest, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(299, 299, 299)
-                            .addComponent(jButton2atualizar)
-                            .addGap(142, 142, 142)
-                            .addComponent(jButton1deletar))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(39, 39, 39)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(30, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField3notaRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1deletar)
-                    .addComponent(jButton2atualizar))
-                .addContainerGap(52, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -182,9 +183,15 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
         }
         GerenciamentoAdmin telaGerAdmin = new GerenciamentoAdmin();
         telaGerAdmin.setVisible(true);
-        this.dispose();
-        
+        this.dispose();       
     }//GEN-LAST:event_jButton1deletarActionPerformed
+
+    private void jButton1voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1voltarActionPerformed
+        // TODO add your handling code here:
+        GerenciamentoAdmin gerAdmin = new GerenciamentoAdmin();
+        gerAdmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1voltarActionPerformed
 
     //Chama método no DAO para montar lista de restaurantes e retornar.
     private void retornaListaRestaurantes() {
@@ -194,9 +201,7 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
             List<String> listaDados = new ArrayList<>();
             for (int i = 0; i != restaurantes.length; i++) {
                 listaDados.add(
-                        " Nome do restaurante: " + restaurantes[i].getNomeRestaurante() + 
-                        " | CNPJ do restaurante: " + restaurantes[i].getEmailRestaurante() +
-                        " | Nota do restaurante: " + restaurantes[i].getNota());
+                        " Nome do restaurante: " + restaurantes[i].getNomeRestaurante());
             }
             for (int i = 0; i != restaurantes.length; i++) {
                 jComboBox1.addItem(listaDados.get(i));
@@ -209,7 +214,7 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
 
     public void exibeSelecionado(int index) {
         jTextField1nomeRest.setText(restaurantes[index - 1].getNomeRestaurante());
-        jTextField2cnpjRest.setText(restaurantes[index - 1].getEmailRestaurante());
+        jTextField2cnpjRest.setText(restaurantes[index - 1].getCnpjRestaurante());
         jTextField3notaRest.setText(Integer.toString(restaurantes[index - 1].getNota()));
     }
 
@@ -233,8 +238,11 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1deletar;
+    private javax.swing.JButton jButton1voltar;
     private javax.swing.JButton jButton2atualizar;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1nomeRest;
     private javax.swing.JTextField jTextField2cnpjRest;
     private javax.swing.JTextField jTextField3notaRest;

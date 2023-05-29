@@ -15,6 +15,8 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
      */
     public GerenciamentoAdmin() {
         initComponents();
+        setResizable(false);
+
     }
 
     /**
@@ -26,10 +28,19 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jButton1pendAprov = new javax.swing.JButton();
         jButton1restCadastrados = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(476, 513));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\ger_admin.png")); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -4, 480, 520));
 
         jButton1pendAprov.setText("Restaurantes Pendentes Aprovação");
         jButton1pendAprov.addActionListener(new java.awt.event.ActionListener() {
@@ -37,6 +48,7 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
                 jButton1pendAprovActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1pendAprov, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 330, 70));
 
         jButton1restCadastrados.setText("Restaurantes cadastrados");
         jButton1restCadastrados.addActionListener(new java.awt.event.ActionListener() {
@@ -44,26 +56,27 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
                 jButton1restCadastradosActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1restCadastrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 330, 70));
+
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 340, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1pendAprov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1restCadastrados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(90, 90, 90))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jButton1pendAprov)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1restCadastrados)
-                .addContainerGap(139, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -82,6 +95,13 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
         listaRC.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1restCadastradosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        TelaInicio telaInicio = new TelaInicio();
+        telaInicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,7 +139,10 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1pendAprov;
     private javax.swing.JButton jButton1restCadastrados;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

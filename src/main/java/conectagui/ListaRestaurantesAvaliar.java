@@ -4,6 +4,7 @@
  */
 package conectagui;
 
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,6 +29,8 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         initComponents();
         this.login = login;
         retornaListaRestaurantes();
+        setResizable(false);
+
     }
 
     /**
@@ -40,11 +43,7 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jTextField1nomeRest = new javax.swing.JTextField();
-        jTextField3notaRest = new javax.swing.JTextField();
-        jButton2avaliar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField2cnpjRest = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
@@ -55,18 +54,130 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         jCheckBox8 = new javax.swing.JCheckBox();
         jCheckBox9 = new javax.swing.JCheckBox();
         jCheckBox10 = new javax.swing.JCheckBox();
+        jTextField1nomeRest = new javax.swing.JTextField();
+        jTextField3notaRest = new javax.swing.JTextField();
+        jTextField2cnpjRest = new javax.swing.JTextField();
+        jTextField1usuarioAvaliador = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1comentario = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1cupom = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2avaliar = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1980, 1020));
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 600));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jCheckBox1.setBorder(null);
+        jCheckBox1.setMaximumSize(new java.awt.Dimension(500, 20));
+        jCheckBox1.setPreferredSize(new java.awt.Dimension(438, 500));
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 27, 20, 20));
+
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(481, 85, -1, -1));
+
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 196, 20, -1));
+
+        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, -1, -1));
+
+        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, -1, -1));
+
+        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, -1, -1));
+
+        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, -1, -1));
+
+        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 420, -1, -1));
+
+        jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 480, -1, -1));
+
+        jCheckBox10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCheckBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 540, -1, -1));
 
         jTextField1nomeRest.setEditable(false);
-        jTextField1nomeRest.setBorder(javax.swing.BorderFactory.createTitledBorder("Nome do restaurante"));
+        jTextField1nomeRest.setBackground(new java.awt.Color(138, 142, 149));
+        jTextField1nomeRest.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextField1nomeRest.setDisabledTextColor(new java.awt.Color(196, 196, 196));
+        jPanel1.add(jTextField1nomeRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 95, 220, 20));
 
         jTextField3notaRest.setEditable(false);
-        jTextField3notaRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Nota do restaurante"));
+        jTextField3notaRest.setBackground(new java.awt.Color(138, 142, 149));
+        jTextField3notaRest.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextField3notaRest.setDisabledTextColor(new java.awt.Color(196, 196, 196));
+        jPanel1.add(jTextField3notaRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 215, 220, 20));
+
+        jTextField2cnpjRest.setEditable(false);
+        jTextField2cnpjRest.setBackground(new java.awt.Color(138, 142, 149));
+        jTextField2cnpjRest.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextField2cnpjRest.setDisabledTextColor(new java.awt.Color(196, 196, 196));
+        jPanel1.add(jTextField2cnpjRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 155, 220, 20));
+
+        jTextField1usuarioAvaliador.setBackground(new java.awt.Color(138, 142, 149));
+        jTextField1usuarioAvaliador.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(jTextField1usuarioAvaliador, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 275, 220, 20));
+
+        jTextArea1comentario.setBackground(new java.awt.Color(176, 217, 163));
+        jTextArea1comentario.setColumns(20);
+        jTextArea1comentario.setRows(5);
+        jTextArea1comentario.setWrapStyleWord(true);
+        jTextArea1comentario.setBorder(null);
+        jScrollPane1.setViewportView(jTextArea1comentario);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 330, 150));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\tela_avaliacao.jpg")); // NOI18N
+        jLabel2.setText("jLabel2");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 700, 610));
 
         jButton2avaliar.setText("Avaliar");
         jButton2avaliar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -79,8 +190,9 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
                 jButton2avaliarActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2avaliar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 533, 150, 60));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clique para expandir" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboBox1MouseClicked(evt);
@@ -91,163 +203,25 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 230, 30));
 
-        jTextField2cnpjRest.setEditable(false);
-        jTextField2cnpjRest.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "CNPJ do restaurante"));
-
-        jCheckBox1.setText("jCheckBox1");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-
-        jCheckBox2.setText("jCheckBox2");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox3.setText("jCheckBox3");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox4.setText("jCheckBox4");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox5.setText("jCheckBox5");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox6.setText("jCheckBox6");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox7.setText("jCheckBox7");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox8.setText("jCheckBox8");
-        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox8ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox9.setText("jCheckBox9");
-        jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox9ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox10.setText("jCheckBox10");
-        jCheckBox10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox10ActionPerformed(evt);
-            }
-        });
-
-        jTextArea1comentario.setColumns(20);
-        jTextArea1comentario.setRows(5);
-        jTextArea1comentario.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Deixe aqui um comentário"));
-        jScrollPane1.setViewportView(jTextArea1comentario);
-
-        jLabel1.setText("Marque o checkbox caso o restaurante atenda ao requisito. Cada checkbox vale um ponto a mais na nota do restaurante.");
-
-        jTextField1cupom.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Cupom")));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField3notaRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.DEFAULT_SIZE, 776, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, 776, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE)
-                            .addComponent(jCheckBox3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCheckBox10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1cupom))
-                .addContainerGap(26, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2avaliar)
-                .addGap(379, 379, 379))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1nomeRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2cnpjRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3notaRest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1cupom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox10))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2avaliar)
-                .addContainerGap(14, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -267,9 +241,9 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
         String comentario = jTextArea1comentario.getText();
-        String cupom = jTextField1cupom.getText();
+        String emailAvaliador = jTextField1usuarioAvaliador.getText();
 
-        CadRestaurante restaurante = new CadRestaurante(nomeRestaurante, cnpjRestaurante, avaliacao, comentario, cupom, login);
+        CadRestaurante restaurante = new CadRestaurante(nomeRestaurante, cnpjRestaurante, avaliacao, comentario, emailAvaliador);
         DAO dao = new DAO();
         try {
             dao.atualizarAvaliacaoRestaurante(restaurante);
@@ -277,8 +251,8 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         } catch (Exception ex) {
 
         }
-        GerenciamentoCliente telaGerCliente = new GerenciamentoCliente(login);
-        telaGerCliente.setVisible(true);
+        GerenciamentoRestaurantes telaGerRest = new GerenciamentoRestaurantes(login);
+        telaGerRest.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2avaliarActionPerformed
 
@@ -396,17 +370,26 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckBox10ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        GerenciamentoRestaurantes gerRest = new GerenciamentoRestaurantes(login);
+        gerRest.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     //Chama método no DAO para montar lista de restaurantes e retornar.
     private void retornaListaRestaurantes() {
         try {
             DAO dao = new DAO();
             restaurantes = dao.retornaListaRestaurantesCadastrados();
             List<String> listaDados = new ArrayList<>();
+
             for (int i = 0; i != restaurantes.length; i++) {
-                listaDados.add(
-                        " Nome do restaurante: " + restaurantes[i].getNomeRestaurante()
-                        + " | CNPJ do restaurante: " + restaurantes[i].getEmailRestaurante()
-                        + " | Nota do restaurante: " + restaurantes[i].getNota());
+                if (restaurantes[i].getCnpjRestaurante().equals(login)) {
+                    listaDados.add(" Nome do restaurante: " + restaurantes[i].getNomeRestaurante());
+                }
+
             }
             for (int i = 0; i != restaurantes.length; i++) {
                 jComboBox1.addItem(listaDados.get(i));
@@ -419,7 +402,7 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
 
     public void exibeSelecionado(int index) {
         jTextField1nomeRest.setText(restaurantes[index - 1].getNomeRestaurante());
-        jTextField2cnpjRest.setText(restaurantes[index - 1].getEmailRestaurante());
+        jTextField2cnpjRest.setText(restaurantes[index - 1].getCnpjRestaurante());
         jTextField3notaRest.setText(Integer.toString(restaurantes[index - 1].getNota()));
     }
 
@@ -443,6 +426,7 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2avaliar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox10;
@@ -455,11 +439,12 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1comentario;
-    private javax.swing.JTextField jTextField1cupom;
     private javax.swing.JTextField jTextField1nomeRest;
+    private javax.swing.JTextField jTextField1usuarioAvaliador;
     private javax.swing.JTextField jTextField2cnpjRest;
     private javax.swing.JTextField jTextField3notaRest;
     // End of variables declaration//GEN-END:variables

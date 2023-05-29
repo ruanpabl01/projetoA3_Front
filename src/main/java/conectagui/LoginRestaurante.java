@@ -17,6 +17,7 @@ public class LoginRestaurante extends javax.swing.JFrame {
      */
     public LoginRestaurante() {
         initComponents();
+        setResizable(false);
     }
 
     /**
@@ -28,14 +29,38 @@ public class LoginRestaurante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        loginJTextField = new javax.swing.JTextField();
         senhaJPasswordField = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
         loginJButton = new javax.swing.JButton();
         sairJButton = new javax.swing.JButton();
-        loginJTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(476, 513));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        senhaJPasswordField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite sua senha"));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        loginJTextField.setBackground(new java.awt.Color(141, 198, 63));
+        loginJTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        loginJTextField.setName(""); // NOI18N
+        loginJTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginJTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(loginJTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 150, 20));
+        loginJTextField.getAccessibleContext().setAccessibleName("");
+
+        senhaJPasswordField.setBackground(new java.awt.Color(141, 198, 63));
+        senhaJPasswordField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel1.add(senhaJPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 150, -1));
+        senhaJPasswordField.getAccessibleContext().setAccessibleName("");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\login_restaurante.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 510));
 
         loginJButton.setText("Entrar");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -43,6 +68,7 @@ public class LoginRestaurante extends javax.swing.JFrame {
                 loginJButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(loginJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 353, 60, 60));
 
         sairJButton.setText("Voltar");
         sairJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -50,47 +76,9 @@ public class LoginRestaurante extends javax.swing.JFrame {
                 sairJButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(sairJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 60));
 
-        loginJTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Digite seu CNPJ"));
-        loginJTextField.setName(""); // NOI18N
-        loginJTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginJTextFieldActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sairJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(loginJTextField)
-                    .addComponent(senhaJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(loginJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(senhaJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sairJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
-
-        senhaJPasswordField.getAccessibleContext().setAccessibleName("");
-        sairJButton.getAccessibleContext().setAccessibleName("Voltar");
-        loginJTextField.getAccessibleContext().setAccessibleName("");
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,7 +90,7 @@ public class LoginRestaurante extends javax.swing.JFrame {
         String senha = new String(senhaJPasswordField.getPassword());
 
         try{
-            LoginUsuario usuario = new LoginUsuario(login,senha);
+            DadosUsuario usuario = new DadosUsuario(login,senha);
             DAO dao = new DAO();
             if(dao.existeRestaurante(usuario)){
                 JOptionPane.showMessageDialog(null, "Bem vindo!");              
@@ -182,6 +170,8 @@ public class LoginRestaurante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginJButton;
     private javax.swing.JTextField loginJTextField;
     private javax.swing.JButton sairJButton;
