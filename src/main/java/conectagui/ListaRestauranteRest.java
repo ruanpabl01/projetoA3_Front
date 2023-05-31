@@ -4,6 +4,7 @@
  */
 package conectagui;
 
+import conectagui.entities.Restaurante;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,7 +23,7 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
         this.cnpj = cnpj;
         setResizable(false);
         jTextField2cnpjRest.setText(cnpj);
-        CadRestaurante[] restaurantes;
+        Restaurante[] restaurantes;
         DAO dao = new DAO();
         restaurantes = dao.retornaListaRestaurantesCadastrados();
         for(int index = 0; index != restaurantes.length; index++){
@@ -142,7 +143,7 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
         String cnpjRestaurante = jTextField2cnpjRest.getText();
         int notaRestaurante = Integer.parseInt(jTextField3notaRest.getText());
         
-        CadRestaurante restaurante = new CadRestaurante (nomeRestaurante, cnpjRestaurante, notaRestaurante); 
+        Restaurante restaurante = new Restaurante (nomeRestaurante, cnpjRestaurante, notaRestaurante); 
  
         DAO dao = new DAO();
         try {
@@ -162,17 +163,16 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
         // TODO add your handling code here:
         String cnpjRestaurante = jTextField2cnpjRest.getText();
         
-        CadRestaurante restaurante = new CadRestaurante (cnpjRestaurante); 
         DAO dao = new DAO();
         try{
-            dao.deletarRestaurante(restaurante);
-            JOptionPane.showMessageDialog(null, "Deleção realizada!");
+            dao.deletarRestaurante(Integer.parseInt(cnpjRestaurante));
+            JOptionPane.showMessageDialog(null, "Remoção realizada!");
         }catch(Exception e){
             
         }
-        GerenciamentoRestaurantes telaGerRest = new GerenciamentoRestaurantes(cnpj);
-        telaGerRest.setVisible(true);
-        this.dispose();
+        GerenciamentoAdmin telaGerAdmin = new GerenciamentoAdmin();
+        telaGerAdmin.setVisible(true);
+        this.dispose();  
     }//GEN-LAST:event_jButton2deletarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package conectagui;
+package conectagui.entities;
 
 import java.util.UUID;
 
@@ -10,7 +10,7 @@ import java.util.UUID;
  *
  * @author ruan.pablo.a.gomes
  */
-public class CadRestaurante {
+public class Restaurante {
 
     private String nomeRestaurante;
     private String cnpjRestaurante;
@@ -20,7 +20,7 @@ public class CadRestaurante {
     private int nota;
     private int notaAvaliacao;
     
-    public CadRestaurante(String nomeRestaurante, String cnpjRestaurante, int notaAvaliacao, String comentario, String login) {
+    public Restaurante(String nomeRestaurante, String cnpjRestaurante, int notaAvaliacao, String comentario, String login) {
         this.nomeRestaurante = nomeRestaurante;
         this.cnpjRestaurante = cnpjRestaurante;
         this.notaAvaliacao = notaAvaliacao;
@@ -29,31 +29,31 @@ public class CadRestaurante {
     }
 
     
-    public CadRestaurante(String nomeRestaurante, String cnpjRestaurante, String senhaRestaurante, int nota) {
+    public Restaurante(String nomeRestaurante, String cnpjRestaurante, String senhaRestaurante, int nota) {
         this.nomeRestaurante = nomeRestaurante;
         this.cnpjRestaurante = cnpjRestaurante;
         this.senhaRestaurante = senhaRestaurante;
         this.nota = nota;
     }
     
-    public CadRestaurante(String nomeRestaurante, String emailRestaurante, int nota) {
+    public Restaurante(String nomeRestaurante, String emailRestaurante, int nota) {
         this.nomeRestaurante = nomeRestaurante;
         this.cnpjRestaurante = emailRestaurante;
         this.nota = nota;
     }
 
-    public CadRestaurante(String nomeRestaurante, String emailRestaurante, String senhaRestaurante) {
+    public Restaurante(String nomeRestaurante, String emailRestaurante, String senhaRestaurante) {
         this.nomeRestaurante = nomeRestaurante;
         this.cnpjRestaurante = emailRestaurante;
         this.senhaRestaurante = senhaRestaurante;
     }
 
-    public CadRestaurante(String nomeRestaurante, String cnpjRestaurante) {
+    public Restaurante(String nomeRestaurante, String cnpjRestaurante) {
         this.nomeRestaurante = nomeRestaurante;
         this.cnpjRestaurante = cnpjRestaurante;
     }
 
-    public CadRestaurante(String cnpjRestaurante) {
+    public Restaurante(String cnpjRestaurante) {
         this.cnpjRestaurante = cnpjRestaurante;
     }
     

@@ -4,6 +4,7 @@
  */
 package conectagui;
 
+import conectagui.entities.Restaurante;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -132,7 +133,7 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
         
-        CadRestaurante restaurante = new CadRestaurante (nomeRestaurante, cnpjRestaurante); 
+        Restaurante restaurante = new Restaurante (nomeRestaurante, cnpjRestaurante); 
         DAO dao = new DAO(); 
         try { 
             dao.inserirRestaurante(restaurante);
@@ -150,10 +151,9 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
         
-        CadRestaurante restaurante = new CadRestaurante (nomeRestaurante, cnpjRestaurante); 
         DAO dao = new DAO();
         try{
-            dao.reprovarRestaurante(restaurante);
+            dao.reprovarRestaurante(Integer.parseInt(cnpjRestaurante));
             JOptionPane.showMessageDialog(null, "Reprovação realizada!");
         }catch(Exception e){
             

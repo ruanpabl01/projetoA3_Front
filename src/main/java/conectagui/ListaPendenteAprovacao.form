@@ -80,9 +80,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\ruan.pablo.a.gomes\OneDrive - Accenture\Desktop\Faculdade\7&#xba; Semestre\Front\projetoA3_Front\src\main\java\imagens\admin_crud_restaurante.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="jLabel1"/>
           </Properties>
           <Constraints>

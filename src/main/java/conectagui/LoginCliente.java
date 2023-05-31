@@ -63,7 +63,6 @@ public class LoginCliente extends javax.swing.JFrame {
         jPanel1.add(senhaJPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 140, 30));
         senhaJPasswordField.getAccessibleContext().setAccessibleName("");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\login_cliente.png")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1, -3, 480, 530));
 
         sairJButton.setText("Voltar");

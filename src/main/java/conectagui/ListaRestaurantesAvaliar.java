@@ -4,6 +4,7 @@
  */
 package conectagui;
 
+import conectagui.entities.Restaurante;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
 
-    CadRestaurante[] restaurantes;
+    Restaurante[] restaurantes;
     int avaliacao;
     String login;
 
@@ -175,7 +176,6 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 330, 150));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\tela_avaliacao.jpg")); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 700, 610));
 
@@ -243,7 +243,7 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         String comentario = jTextArea1comentario.getText();
         String emailAvaliador = jTextField1usuarioAvaliador.getText();
 
-        CadRestaurante restaurante = new CadRestaurante(nomeRestaurante, cnpjRestaurante, avaliacao, comentario, emailAvaliador);
+        Restaurante restaurante = new Restaurante(nomeRestaurante, cnpjRestaurante, avaliacao, comentario, emailAvaliador);
         DAO dao = new DAO();
         try {
             dao.atualizarAvaliacaoRestaurante(restaurante);

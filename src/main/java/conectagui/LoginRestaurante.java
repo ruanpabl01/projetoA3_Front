@@ -58,7 +58,6 @@ public class LoginRestaurante extends javax.swing.JFrame {
         jPanel1.add(senhaJPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 150, -1));
         senhaJPasswordField.getAccessibleContext().setAccessibleName("");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\login_restaurante.png")); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 510));
 

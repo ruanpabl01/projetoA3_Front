@@ -4,6 +4,7 @@
  */
 package conectagui;
 
+import conectagui.entities.Restaurante;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class ListaRestaurantesAdmin extends javax.swing.JFrame {
 
-    CadRestaurante[] restaurantes;
+    Restaurante[] restaurantes;
 
     /**
      * Creates new form ListaPendenteAprovacao
@@ -155,7 +156,7 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
         int notaRestaurante = Integer.parseInt(jTextField3notaRest.getText());
         
         
-        CadRestaurante restaurante = new CadRestaurante (nomeRestaurante, cnpjRestaurante, notaRestaurante); 
+        Restaurante restaurante = new Restaurante (nomeRestaurante, cnpjRestaurante, notaRestaurante); 
         DAO dao = new DAO(); 
         try { 
             dao.atualizarRestaurante(restaurante);
@@ -173,11 +174,10 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
         
-        CadRestaurante restaurante = new CadRestaurante (nomeRestaurante, cnpjRestaurante); 
         DAO dao = new DAO();
         try{
-            dao.deletarRestaurante(restaurante);
-            JOptionPane.showMessageDialog(null, "Deleção realizada!");
+            dao.deletarRestaurante(Integer.parseInt(cnpjRestaurante));
+            JOptionPane.showMessageDialog(null, "Remoção realizada!");
         }catch(Exception e){
             
         }

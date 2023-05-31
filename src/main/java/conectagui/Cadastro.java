@@ -4,6 +4,8 @@
  */
 package conectagui;
 
+import conectagui.entities.Cliente;
+import conectagui.entities.Restaurante;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -81,12 +83,10 @@ public class Cadastro extends javax.swing.JFrame {
         jPasswordField1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 260, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\tela_cadastro.png")); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setPreferredSize(new java.awt.Dimension(476, 513));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\tela_cadastro_rest.png")); // NOI18N
         jLabel3.setText("jLabel1");
         jLabel3.setPreferredSize(new java.awt.Dimension(476, 513));
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -187,14 +187,14 @@ public class Cadastro extends javax.swing.JFrame {
         String senhaCliente = new String(jPasswordField1.getPassword());
 
         if (jCheckBox1Cliente.isSelected() == true) {
-            CadCliente cliente = new CadCliente(nome, emailOrCnpj, senhaCliente);
+            Cliente cliente = new Cliente(nome, emailOrCnpj, senhaCliente);
             try {
                 dao.inserirCliente(cliente);
             } catch (Exception ex) {
 
             }
         } else {
-            CadRestaurante restaurante = new CadRestaurante(nome, emailOrCnpj, senhaCliente);
+            Restaurante restaurante = new Restaurante(nome, emailOrCnpj, senhaCliente);
             try {
                 dao.inserirRestaurante(restaurante);
                 JOptionPane.showMessageDialog(null, "Cadastro realizado! Aguarde ser aprovado.");

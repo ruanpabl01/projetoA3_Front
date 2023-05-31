@@ -4,6 +4,7 @@
  */
 package conectagui;
 
+import conectagui.entities.Restaurante;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class ListaRestaurantesCliente extends javax.swing.JFrame {
 
-    CadRestaurante[] restaurantes;
+    Restaurante[] restaurantes;
     String login;
     
     /**
