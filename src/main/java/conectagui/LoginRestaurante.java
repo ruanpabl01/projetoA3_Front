@@ -88,24 +88,23 @@ public class LoginRestaurante extends javax.swing.JFrame {
         //Pega senha digitada
         String senha = new String(senhaJPasswordField.getPassword());
 
-        try{
-            DadosUsuario usuario = new DadosUsuario(login,senha);
+        try {
+            DadosUsuario usuario = new DadosUsuario(login, senha);
             DAO dao = new DAO();
-            if(dao.existeRestaurante(usuario)){
-                JOptionPane.showMessageDialog(null, "Bem vindo!");              
-            }
-            else{
+            if (dao.existeRestaurante(usuario)) {
+                JOptionPane.showMessageDialog(null, "Bem vindo!");
+                GerenciamentoRestaurantes gerRest = new GerenciamentoRestaurantes(login);
+                gerRest.setVisible(true);
+                this.dispose();
+                
+            } else {
                 JOptionPane.showMessageDialog(null, "Usuário invalido");
             }
-            GerenciamentoRestaurantes gerRest = new GerenciamentoRestaurantes(login);
-            gerRest.setVisible(true);
-            this.dispose();
-        
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Problemas técnicos. Tente mais tarde");
         }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "problemas técnicos. Tente mais tarde");
-        }
-        
+
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void sairJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairJButtonActionPerformed

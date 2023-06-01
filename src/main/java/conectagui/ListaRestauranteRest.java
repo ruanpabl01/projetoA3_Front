@@ -11,27 +11,32 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ruan.pablo.a.gomes
+ * @author amand
  */
 public class ListaRestauranteRest extends javax.swing.JFrame {
+
     String cnpj;
+
     /**
      * Creates new form ListaRestauranteRest
      */
     public ListaRestauranteRest(String cnpj) {
-        initComponents();
-        this.cnpj = cnpj;
-        setResizable(false);
-        jTextField2cnpjRest.setText(cnpj);
-        Restaurante[] restaurantes;
-        DAO dao = new DAO();
-        restaurantes = dao.retornaListaRestaurantesCadastrados();
-        for(int index = 0; index != restaurantes.length; index++){
-            if(restaurantes[index].getCnpjRestaurante().equals(cnpj)){
-                jTextField1nomeRest.setText(restaurantes[index].getNomeRestaurante());
-                jTextField3notaRest.setText(Integer.toString(restaurantes[index].getNota()));
-            }
+        try {
+            initComponents();
+            this.cnpj = cnpj;
+            setResizable(false);
+            jTextField2cnpjRest.setText(cnpj);
+            String[] resultados;
+            DAO dao = new DAO();
+
+            resultados = dao.retornaRestaurantesPorCNPJ(Integer.parseInt(cnpj));
+            jTextField1nomeRest.setText(resultados[0]);
+            jTextField3notaRest.setText(resultados[1]);
+        } catch (Exception ex) {
+
+            System.out.println(ex);
         }
+
     }
 
     /**
@@ -49,7 +54,6 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
         jTextField3notaRest = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1atualizar = new javax.swing.JButton();
-        jButton2deletar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,7 +86,6 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
         });
         jPanel1.add(jTextField3notaRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 297, 260, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\rest_meu_restaurante.png")); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 520));
 
@@ -93,14 +96,6 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1atualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 373, 160, 30));
-
-        jButton2deletar.setText("Deletar");
-        jButton2deletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2deletarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2deletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 373, 160, 30));
 
         jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -128,53 +123,34 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
 
     private void jTextField1nomeRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1nomeRestActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextField1nomeRestActionPerformed
 
     private void jTextField3notaRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3notaRestActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextField3notaRestActionPerformed
 
     private void jButton1atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1atualizarActionPerformed
         // TODO add your handling code here:
-        
+
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
-        int notaRestaurante = Integer.parseInt(jTextField3notaRest.getText());
-        
-        Restaurante restaurante = new Restaurante (nomeRestaurante, cnpjRestaurante, notaRestaurante); 
- 
+
         DAO dao = new DAO();
         try {
-            dao.atualizarRestaurante(restaurante);
-            JOptionPane.showMessageDialog(null, "Atualização realizada!");
+            dao.atualizarRestaurante(cnpjRestaurante, nomeRestaurante);
 
         } catch (Exception ex) {
-        
+            System.out.println("Não foi possível atualizar o nome do restaurante");
+
         }
-        
+
         GerenciamentoRestaurantes telaGerRest = new GerenciamentoRestaurantes(cnpj);
         telaGerRest.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1atualizarActionPerformed
-
-    private void jButton2deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2deletarActionPerformed
-        // TODO add your handling code here:
-        String cnpjRestaurante = jTextField2cnpjRest.getText();
-        
-        DAO dao = new DAO();
-        try{
-            dao.deletarRestaurante(Integer.parseInt(cnpjRestaurante));
-            JOptionPane.showMessageDialog(null, "Remoção realizada!");
-        }catch(Exception e){
-            
-        }
-        GerenciamentoAdmin telaGerAdmin = new GerenciamentoAdmin();
-        telaGerAdmin.setVisible(true);
-        this.dispose();  
-    }//GEN-LAST:event_jButton2deletarActionPerformed
-
+/**/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         GerenciamentoRestaurantes gerRest = new GerenciamentoRestaurantes(cnpj);
@@ -220,7 +196,6 @@ public class ListaRestauranteRest extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1atualizar;
-    private javax.swing.JButton jButton2deletar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1nomeRest;

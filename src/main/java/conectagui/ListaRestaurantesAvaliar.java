@@ -21,6 +21,7 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
     Restaurante[] restaurantes;
     int avaliacao;
     String login;
+    DAO dao = new DAO();
 
     /**
      * Creates new form ListaPendenteAprovacao
@@ -31,6 +32,17 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         this.login = login;
         retornaListaRestaurantes();
         setResizable(false);
+
+        
+        String[] resultados = dao.retornaRestaurantesPorCNPJ(Integer.parseInt(login));
+        // infos impressas na tela
+        String nomeRestaurante = resultados[0];
+        String mediaRestaurante = resultados[1];
+
+        jTextField1nomeRest.setText(nomeRestaurante);
+        jTextField3notaRest.setText(mediaRestaurante);
+        jTextField2cnpjRest.setText(login);
+
 
     }
 
@@ -238,22 +250,21 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
 
     private void jButton2avaliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2avaliarActionPerformed
         // TODO add your handling code here:
-        String nomeRestaurante = jTextField1nomeRest.getText();
-        String cnpjRestaurante = jTextField2cnpjRest.getText();
-        String comentario = jTextArea1comentario.getText();
-        String emailAvaliador = jTextField1usuarioAvaliador.getText();
 
-        Restaurante restaurante = new Restaurante(nomeRestaurante, cnpjRestaurante, avaliacao, comentario, emailAvaliador);
-        DAO dao = new DAO();
         try {
-            dao.atualizarAvaliacaoRestaurante(restaurante);
-            JOptionPane.showMessageDialog(null, "Avaliação realizada!");
+            dao.avaliarRestaurante(jTextField1usuarioAvaliador.getText(), Integer.parseInt(login), jTextArea1comentario.getText(), avaliacao);
+
+            dao.atualizarAvaliacaoRestaurante(Integer.parseInt(login));
+
+            GerenciamentoRestaurantes telaGerRest = new GerenciamentoRestaurantes(login);
+            telaGerRest.setVisible(true);
+            this.dispose();
+            
         } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao tentar avaliar!");
 
         }
-        GerenciamentoRestaurantes telaGerRest = new GerenciamentoRestaurantes(login);
-        telaGerRest.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_jButton2avaliarActionPerformed
 
     private void jButton2avaliarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2avaliarMouseClicked
@@ -375,7 +386,7 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
         GerenciamentoRestaurantes gerRest = new GerenciamentoRestaurantes(login);
         gerRest.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     //Chama método no DAO para montar lista de restaurantes e retornar.

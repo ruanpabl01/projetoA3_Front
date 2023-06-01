@@ -197,9 +197,9 @@ public class Cadastro extends javax.swing.JFrame {
             Restaurante restaurante = new Restaurante(nome, emailOrCnpj, senhaCliente);
             try {
                 dao.inserirRestaurante(restaurante);
-                JOptionPane.showMessageDialog(null, "Cadastro realizado! Aguarde ser aprovado.");
+        
             } catch (Exception ex) {
-                
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar o cadastro. Tente novamente.");
             }
         }
         TelaInicio telaInicio = new TelaInicio();

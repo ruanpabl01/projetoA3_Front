@@ -154,12 +154,10 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
         int notaRestaurante = Integer.parseInt(jTextField3notaRest.getText());
-        
-        
-        Restaurante restaurante = new Restaurante (nomeRestaurante, cnpjRestaurante, notaRestaurante); 
+             
         DAO dao = new DAO(); 
         try { 
-            dao.atualizarRestaurante(restaurante);
+            dao.atualizarRestaurante(cnpjRestaurante, nomeRestaurante);
             JOptionPane.showMessageDialog(null, "Atualização realizada!");
         } catch (Exception ex) {
             

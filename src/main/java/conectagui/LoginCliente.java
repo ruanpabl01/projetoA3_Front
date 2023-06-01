@@ -109,7 +109,8 @@ public class LoginCliente extends javax.swing.JFrame {
             DAO dao = new DAO();
             if(dao.existeCliente(usuario)){
                 JOptionPane.showMessageDialog(null, "Bem vindo!");
-                if(usuario.getNome().equals("admin@admin.com")){
+                
+                if(usuario.getNome().equals("admin")){
                     GerenciamentoAdmin gerAdmin = new GerenciamentoAdmin();
                     gerAdmin.setVisible(true);
                     this.dispose();
@@ -125,7 +126,7 @@ public class LoginCliente extends javax.swing.JFrame {
         
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "problemas técnicos. Tente mais tarde");
+            JOptionPane.showMessageDialog(null, "Problemas técnicos. Tente mais tarde");
         }
         
     }//GEN-LAST:event_loginJButtonActionPerformed

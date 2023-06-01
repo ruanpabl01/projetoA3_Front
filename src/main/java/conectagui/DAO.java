@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import javax.swing.JOptionPane;
 import static javax.xml.stream.XMLStreamConstants.CHARACTERS;
 
 public class DAO {
@@ -29,7 +30,7 @@ public class DAO {
 
     //Realiza a busca na tabela 'Restaurante' do BD
     public boolean existeRestaurante(DadosUsuario usuario) throws Exception {
-        String sql = "SELECT * FROM restaurante WHERE nomeRestaurante=? AND senhaRestaurante=?";
+        String sql = "SELECT * FROM restaurante WHERE cnpjRestaurante=? AND senhaRestaurante=?";
         try (Connection conn = ConexaoBD.obterConexao()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, usuario.getNome());
@@ -70,27 +71,35 @@ public class DAO {
 
     }
 
-    //Realiza o cadastro da primeira ocorrencia do cliente no BD 
-    public void inserirEmailCliente(Cliente cliente) throws Exception {
-        String sql = "INSERT INTO cliente (emailCliente) VALUES (?, ?);";
-        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
-            ps.setString(1, cliente.getEmailCliente());
-            ps.execute();
-        }
-        System.out.println("Cliente registrado no Banco de Dados" + cliente.getEmailCliente());
-    }
-
     //Realiza o cadastro do Restaurante no BD em uma lista para aprovação
     public void inserirRestaurante(Restaurante restaurante) throws Exception {
-        String sql = "INSERT INTO restaurante (cnpjRestaurante, statusCadastroRestaurante, nomeRestaurante, senhaRestaurante) VALUES (?, ?);";
-        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
-            ps.setString(2, restaurante.getCnpjRestaurante());
-            ps.setString(1, restaurante.getNomeRestaurante());
 
+        String sql = "INSERT INTO restaurante (cnpjRestaurante, statusCadastroRestaurante, nomeRestaurante, senhaRestaurante) VALUES (?, ?, ?, ?);";
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+            System.out.println("passei aq");
+            ps.setString(3, restaurante.getNomeRestaurante());
+            ps.setInt(1, Integer.parseInt(restaurante.getCnpjRestaurante()));
+            ps.setString(4, restaurante.getSenhaRestaurante());
+            ps.setString(2, "pendente");
             ps.execute();
+
+            System.out.println("Cadastro realizado (classe DAO)"
+                    + restaurante.getNomeRestaurante()
+                    + ", "
+                    + restaurante.getCnpjRestaurante()
+                    + ", "
+                    + restaurante.getSenhaRestaurante()
+                    + ", "
+                    + restaurante.getStatusCadastroRestaurante());
+
+            JOptionPane.showMessageDialog(null, "Cadastro realizado! Aguarde ser aprovado.");
+
+        } catch (Exception ex) {
+
+            System.out.println("Não foi possível realizar o cadastro do restaurante." + ex);
+            JOptionPane.showMessageDialog(null, "Não foi possível realizar o cadastro. Tente novamente.");
         }
-        System.out.println("Cadastro realizado (classe DAO)" + restaurante.getNomeRestaurante() + ", "
-                + restaurante.getCnpjRestaurante() + ", " + restaurante.getSenhaRestaurante());
+
     }
 
     //Recebe o CNPJ cujo cadastro foi reprovado. O restaurante deve ser removido da tabela de restaurantes pendentes aprovação.
@@ -112,50 +121,127 @@ public class DAO {
         System.out.println(cnpj);
     }
 
-    public void atualizarRestaurante(Restaurante restaurante) throws Exception {
-        String sql = "UPDATE restaurante SET nome = ?, tipo = ? WHERE id = ?";
+    public void atualizarRestaurante(String cnpj, String nome) throws Exception {
+        String sql = "UPDATE restaurante SET nomeRestaurante = ? WHERE cnpjRestaurante = ?";
         try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
-            /* ps.setString(1, restaurante.getNome());
-            ps.setString(2, restaurante.getTipo());
-            ps.setInt(3, restaurante.getId());
+            ps.setString(2, cnpj);
+            ps.setString(1, nome);
             ps.execute();
-             */
+
+            System.out.println("Cadastro atualizado (classe DAO)" + nome + ", " + cnpj);
+            JOptionPane.showMessageDialog(null, "Atualização realizada!");
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Atualização não realizada!");
+            System.out.println("Não foi possível atualizar o nome do restaurante");
+
         }
-        System.out.println("Cadastro atualizado (classe DAO)" + restaurante.getNomeRestaurante() + ", "
-                + restaurante.getCnpjRestaurante() + ", " + restaurante.getNota());
+
+    }
+
+    public void avaliarRestaurante(String cliente, int cnpj, String comentario, int nota) throws Exception {
+        String sql = "INSERT INTO avaliacao (Cliente_emailCliente, Restaurante_cnpjRestaurante, comentarioAvaliacao, notaAvaliacao) VALUES (?, ?, ?, ?)";
+ 
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+            ps.setString(1, cliente);
+            ps.setInt(2, cnpj);
+            ps.setString(3, comentario);
+            ps.setInt(4, nota);
+
+            ps.execute();
+
+            System.out.println("Avaliação registrada na tabela de Avaliação(classe DAO)");
+
+        }
+
     }
 
     //Será chamado toda vez que uma avaliação for realizada. 
     //Recebe Nome e CNPJ do restaurante, e-mail e nota do usuário avaliador. Deve ser incrementado 1 na quantidade de avaliações do usuário com e-mail recebido.
     //Aqui será necessário um IF para verificar se o usuário já avaliou 3x, se sim, chamar função 'geraCupom' passando o LoginAvaliador para armazenar um cupom no cliente;
     //Importante concatenar usuário avaliador e comentário antes de inserir no banco 
-    public void atualizarAvaliacaoRestaurante(Restaurante restaurante) throws Exception {
-        String sql = "UPDATE tb_curso SET nome = ?, tipo = ? WHERE id = ?";
+    public void atualizarAvaliacaoRestaurante(int cnpj) throws Exception {
+        String sql = "UPDATE restaurante SET mediaAvaliacao = ? where cnpjRestaurante = ?";
         try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
-            /* ps.setString(1, curso.getNome());
-            ps.setString(2, curso.getTipo());
-            ps.setInt(3, curso.getId());
-            ps.execute(); 
-             */
+
+            int mediaAvaliacao = calculaMediaRestaurante(cnpj);
+
+            ps.setInt(1, mediaAvaliacao);
+            ps.setInt(2, cnpj);
+            ps.execute();
+
+            System.out.println("Avaliação registrada (classe DAO)");
+            JOptionPane.showMessageDialog(null, "Avaliação registrada com sucesso!");
+
+        } catch (Exception ex) {
+            System.out.println("Avaliação não registrada (classe DAO)");
+            JOptionPane.showMessageDialog(null, "Avaliação registrada sem sucesso :C ");
+
         }
-        System.out.println("Avaliação registrada (classe DAO): "
-                + "\nNome do restaurante: " + restaurante.getNomeRestaurante()
-                + "\nCNPJ do restaurante: " + restaurante.getCnpjRestaurante()
-                + "\nAvaliação dada: " + restaurante.getNotaAvaliacao()
-                + "\nComentário inserido: " + restaurante.getLoginAvaliador() + " escreveu " + restaurante.getComentario()
-        );
+
     }
 
-    //##################################################MÉTODOS################################################################################
-    //Realiza uma busca por CNPJ no banco (base de restaurantes cadastrados) e retorna nome;
-    public Restaurante[] retornaRestaurantesPorCNPJ(String cnpj) {
+    public Integer calculaMediaRestaurante(int cnpj) throws Exception {
+        List<Integer> notas = new ArrayList<>();
+        int somatoria = 0;
+        int media = 0;
 
-        Restaurante[] restaurantes = new Restaurante[3];
-        restaurantes[0] = new Restaurante("Oliver Garden", "47380257000180", 10);
-        restaurantes[1] = new Restaurante("MCDonalds", "16523966000143", 8);
-        restaurantes[2] = new Restaurante("BK", "27824158000132", 6);
+        String sql = "SELECT notaAvaliacao FROM avaliacao where Restaurante_cnpjRestaurante = ?";
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
 
-        return restaurantes;
+            ps.setInt(1, cnpj);
+
+            ResultSet rs = ps.executeQuery();
+
+            int i = 0;
+
+            if (rs != null) {
+
+                while (rs.next()) {
+                    int a = rs.getInt("notaAvaliacao");
+                    notas.add(a);
+                }
+
+            }
+            int qtd = notas.size();
+
+            for (Integer nota : notas) {
+                somatoria += nota;
+            }
+
+            media = somatoria / qtd;
+        }
+
+        return media;
+
+    }
+
+//##################################################MÉTODOS################################################################################
+//Realiza uma busca por CNPJ no banco (base de restaurantes cadastrados) e retorna nome e media;
+    public String[] retornaRestaurantesPorCNPJ(int cnpj) {
+        String[] resultados = new String[2];
+
+        String sql = "SELECT nomeRestaurante, mediaAvaliacao FROM restaurante where cnpjRestaurante = ?;";
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+
+            ps.setInt(1, cnpj);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs != null && rs.next()) {
+                resultados[0] = rs.getString("nomeRestaurante");
+                resultados[1] = rs.getInt("mediaAvaliacao") + "";
+            }
+
+            System.out.println("Busca por CNPJ no banco realizada. CNPJ: " + cnpj + "Nome: " + resultados[0] + "Media: " + resultados[1]);
+
+            return resultados;
+
+        } catch (Exception ex) {
+
+            System.out.println("Não foi possível realizar a busca por CNPJ no banco." + ex);
+
+            return resultados;
+        }
     }
 
     //Seta os restaurantes pendentes aprovações na lista 'Restaurantes' e devolve para a classe chamadora. A fonte será a tabela de restaurantes pendentes aprovação.

@@ -15,27 +15,30 @@ public class Restaurante {
     private String nomeRestaurante;
     private String cnpjRestaurante;
     private String senhaRestaurante;
+    private String statusCadastroRestaurante;
+    private int mediaAvaliacao;
+
     private String comentario;
     private String loginAvaliador;
     private int nota;
-    private int notaAvaliacao;
-    
-    public Restaurante(String nomeRestaurante, String cnpjRestaurante, int notaAvaliacao, String comentario, String login) {
-        this.nomeRestaurante = nomeRestaurante;
+
+    public Restaurante(String cnpjRestaurante, String statusCadastroRestaurante, String nomeRestaurante, int mediaAvaliacao, String comentario, String login) {
         this.cnpjRestaurante = cnpjRestaurante;
-        this.notaAvaliacao = notaAvaliacao;
+        this.statusCadastroRestaurante = statusCadastroRestaurante;
+        this.nomeRestaurante = nomeRestaurante;
+        this.mediaAvaliacao = mediaAvaliacao;
+
         this.comentario = comentario;
         this.loginAvaliador = login;
     }
 
-    
     public Restaurante(String nomeRestaurante, String cnpjRestaurante, String senhaRestaurante, int nota) {
         this.nomeRestaurante = nomeRestaurante;
         this.cnpjRestaurante = cnpjRestaurante;
         this.senhaRestaurante = senhaRestaurante;
         this.nota = nota;
     }
-    
+
     public Restaurante(String nomeRestaurante, String emailRestaurante, int nota) {
         this.nomeRestaurante = nomeRestaurante;
         this.cnpjRestaurante = emailRestaurante;
@@ -56,7 +59,7 @@ public class Restaurante {
     public Restaurante(String cnpjRestaurante) {
         this.cnpjRestaurante = cnpjRestaurante;
     }
-    
+
     public String getLoginAvaliador() {
         return loginAvaliador;
     }
@@ -65,12 +68,12 @@ public class Restaurante {
         this.loginAvaliador = loginAvaliador;
     }
 
-    public int getNotaAvaliacao() {
-        return notaAvaliacao;
+    public int getMediaAvaliacao() {
+        return mediaAvaliacao;
     }
 
-    public void setNotaAvaliacao(int notaAvaliacao) {
-        this.notaAvaliacao = notaAvaliacao;
+    public void setMediaAvaliacao(int mediaAvaliacao) {
+        this.mediaAvaliacao = mediaAvaliacao;
     }
 
     public String getComentario() {
@@ -111,5 +114,13 @@ public class Restaurante {
 
     public void setSenhaRestaurante(String senhaRestaurante) {
         this.senhaRestaurante = senhaRestaurante;
+    }
+
+    public String getStatusCadastroRestaurante() {
+        return statusCadastroRestaurante;
+    }
+
+    public void setStatusCadastroRestaurante(String statusCadastroRestaurante) {
+        this.statusCadastroRestaurante = statusCadastroRestaurante;
     }
 }
