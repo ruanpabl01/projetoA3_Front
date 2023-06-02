@@ -119,13 +119,9 @@ public class GerenciamentoRestaurantes extends javax.swing.JFrame {
         String cupomCliente = JOptionPane.showInputDialog(null, "Digite o cupom");
         String identCliente = JOptionPane.showInputDialog(null, "Digite o e-mail do cliente");
         DAO dao = new DAO();
-        if(dao.validaCupom(identCliente, cupomCliente)){
-            JOptionPane.showMessageDialog(null, "Cupom válido!", "Alerta", JOptionPane.WARNING_MESSAGE);
-
-        }else{
-            JOptionPane.showMessageDialog(null, "Cupom inválido!", "Alerta", JOptionPane.WARNING_MESSAGE);
-
-        }
+        
+        dao.validaCupom(identCliente,Integer.parseInt( cupomCliente));
+      
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

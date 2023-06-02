@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
  * @author ruan.pablo.a.gomes
  */
 public class ListaRestaurantesAdmin extends javax.swing.JFrame {
+    
+      List<Restaurante> rests = new ArrayList<>();
 
     Restaurante[] restaurantes;
 
@@ -195,7 +197,7 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
     private void retornaListaRestaurantes() {
         try {
             DAO dao = new DAO();
-            restaurantes = dao.retornaListaRestaurantesCadastrados();
+            rests = dao.retornaListaRestaurantesCadastrados();
             List<String> listaDados = new ArrayList<>();
             for (int i = 0; i != restaurantes.length; i++) {
                 listaDados.add(

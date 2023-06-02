@@ -5,7 +5,9 @@
 package conectagui;
 
 import static java.awt.Color.BLACK;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 
 /**
@@ -13,30 +15,24 @@ import javax.swing.JLabel;
  * @author ruan.pablo.a.gomes
  */
 public class ListaCuponsCliente extends javax.swing.JFrame {
+
     String login;
+    DefaultListModel lista = new DefaultListModel();
+
     /**
      * Creates new form ListaCuponsCliente
      */
     public ListaCuponsCliente(String login) {
         initComponents();
         this.login = login;
+
         setResizable(false);
         DAO dao = new DAO();
-        List<String> x = dao.retornaCuponsCliente(login);
-        
-        JLabel[] labels = new JLabel[5];
-        labels[0] = cupom1;
-        labels[1] = cupom2;
-        labels[2] = cupom3;
-        labels[3] = cupom4;
-        labels[4] = cupom5;
 
-        for(int i = 0; i != x.size(); i++){
-            if(labels[i].getText().isEmpty()){
-                labels[i].setText(x.get(i));
-            }
-        }
+        dao.retornaCuponsCliente(login, lista);
         
+        jList1.setModel(lista);
+
 //        if (x.size() != 0) {
 //            for (int i = 0; i != x.size(); i++) {
 //                if (i == 0) {
@@ -67,6 +63,8 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
         cupom5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         jLabel2.setText("jLabel2");
 
@@ -75,13 +73,11 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(476, 513));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(cupom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 190, 20));
-        jPanel1.add(cupom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 116, 190, 20));
+        jPanel1.add(cupom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 190, 20));
         jPanel1.add(cupom3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 190, 20));
         jPanel1.add(cupom4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 226, 190, 20));
         jPanel1.add(cupom5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 190, 20));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\cliente_tela_cupom.png")); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -4, 480, 520));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 520));
 
         jButton1.setText("Voltar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +86,15 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 60));
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 66, 270, 240));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,6 +163,8 @@ public class ListaCuponsCliente extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

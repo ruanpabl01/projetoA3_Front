@@ -16,6 +16,8 @@ import javax.swing.JOptionPane;
  * @author ruan.pablo.a.gomes
  */
 public class ListaRestaurantesCliente extends javax.swing.JFrame {
+    
+    List<Restaurante> rests = new ArrayList<>() ;
 
     Restaurante[] restaurantes;
     String login;
@@ -147,18 +149,11 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
     private void retornaListaRestaurantes() {
         try {
             DAO dao = new DAO();
-            restaurantes = dao.retornaListaRestaurantesCadastrados();
-            List<String> listaDados = new ArrayList<>();
-
-            for (int i = 0; i != restaurantes.length; i++) {
-                                    listaDados.add(
-                            " Nome do restaurante: " + restaurantes[i].getNomeRestaurante()
-                            + " | CNPJ do restaurante: " + restaurantes[i].getCnpjRestaurante()
-                            + " | Nota do restaurante: " + restaurantes[i].getNota()
-                    );
-            }
-            for (int i = 0; i != restaurantes.length; i++) {
-                jComboBox1.addItem(listaDados.get(i));
+            rests = dao.retornaListaRestaurantesCadastrados();
+    
+            for (Restaurante rest : rests) {
+                
+                jComboBox1.addItem(rest.getNomeRestaurante());
             }
 
         } catch (Exception e) {

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import static javax.xml.stream.XMLStreamConstants.CHARACTERS;
 
@@ -141,7 +142,7 @@ public class DAO {
 
     public void avaliarRestaurante(String cliente, int cnpj, String comentario, int nota) throws Exception {
         String sql = "INSERT INTO avaliacao (Cliente_emailCliente, Restaurante_cnpjRestaurante, comentarioAvaliacao, notaAvaliacao) VALUES (?, ?, ?, ?)";
- 
+
         try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
             ps.setString(1, cliente);
             ps.setInt(2, cnpj);
@@ -257,14 +258,35 @@ public class DAO {
     }
 
     //Seta os restaurantes cadastrados na lista 'Restaurantes' e devolve para a classe chamadora. A fonte será a tabela de restaurantes cadastrados.
-    public Restaurante[] retornaListaRestaurantesCadastrados() {
+    public List<Restaurante> retornaListaRestaurantesCadastrados() throws Exception {
 
-        Restaurante[] restaurantesCad = new Restaurante[3];
-        restaurantesCad[0] = new Restaurante("Oliver Garden", "47380257000180", 10);
-        restaurantesCad[1] = new Restaurante("MCDonalds", "16523966000143", "123456", 8);
-        restaurantesCad[2] = new Restaurante("BK", "27824158000132", "123456", 6);
+        List<Restaurante> rests = new ArrayList<>();
 
-        return restaurantesCad;
+        String sql = "SELECT nomeRestaurante, mediaAvaliacao, comentarioAvaliacao FROM restaurante AS r JOIN avaliacao AS a where a.Restaurante_cnpjRestaurante = r.cnpjRestaurante";
+
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+
+            int i = 0;
+
+            if (rs != null) {
+
+                while (rs.next()) {
+
+                    Restaurante rest = new Restaurante(
+                            rs.getString("nomeRestaurante"),
+                            rs.getInt("mediaAvaliacao"),
+                            rs.getString("comentarioAvaliacao")
+                    );
+
+                    rests.add(rest);
+                }
+
+            }
+
+        }
+
+        return rests;
     }
 
     //Aqui será recebido o CNPJ, a partir dele, será necessário percorrer os comentários do restaurante em questão para setar na variável comentários e devolver para a classe chamadora
@@ -297,36 +319,81 @@ public class DAO {
 
     //Será chamada quando o usuário clicar em 'Meus cupons'.
     //Necessário consulta no banco dos cupons do cliente e inserir na lista 'cupons'.
-    public List<String> retornaCuponsCliente(String usuario) {
-        System.out.println(usuario);
-        List<String> cupons = new ArrayList<>();
+    public void retornaCuponsCliente(String usuario, DefaultListModel lista) {
 
-        cupons.add("ABCDE");
-        cupons.add("FGHIJ");
-        cupons.add("KLMNO");
+        String sql = "SELECT codigoCupom FROM cupom where Cliente_emailCliente = ?";
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
 
-        return cupons;
+            ps.setString(1, usuario);
+            ResultSet rs = ps.executeQuery();
+
+            int i = 0;
+
+            if (rs != null) {
+
+                while (rs.next()) {
+                    int a = rs.getInt("codigoCupom");
+                    lista.addElement(a);
+                }
+
+            }
+
+        } catch (Exception ex) {
+
+            System.out.println("Erro ao retornar cupons");
+
+        }
+
     }
 
+    public void deletaCupom(int cupom) throws Exception {
+        String sql = "DELETE FROM cupom WHERE codigoCupom = ?";
+
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+
+            ps.setInt(1, cupom);
+            ps.executeUpdate();
+
+        }
+
+    }
     //Aqui é o restaurante validando o cupom. 
     //Toda vez que for validado, necessário deletar o cupom do cliente (por isso está sendo passado aqui o e-mail do cliente, que é pedido no front no momento da validação.
-    public boolean validaCupom(String usuario, String cupom) {
+
+    public boolean validaCupom(String usuario, int cupom) {
         System.out.println("Usuário: " + usuario);
         System.out.println("Cupom: " + cupom);
-        boolean flag = false;
-        List<String> cupons = new ArrayList<>();
-        cupons.add("ABCDE");
-        cupons.add("FGHIJ");
-        cupons.add("KLMNO");
-        for (int i = 0; i < cupons.size(); i++) {
-            System.out.println(i);
-            if (cupom.equals(cupons.get(i))) {
-                flag = true;
-                break;
+        Integer a = 0;
+
+        String sql = "SELECT COUNT(*) AS QTD FROM cupom WHERE Cliente_emailCliente = ? AND codigoCupom = ?";
+
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+
+            ps.setString(1, usuario);
+            ps.setInt(2, cupom);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+
+            if (rs.getInt("QTD") == 0) {
+
+                JOptionPane.showMessageDialog(null, "Cupom não encontrado!");
+
+                return false;
+
             } else {
-                flag = false;
+
+                JOptionPane.showMessageDialog(null, "Parabéns! O cliente possui 10% de desconto em sua loja!");
+
+                deletaCupom(cupom);
+
             }
+
+        } catch (Exception ex) {
+
+            System.out.println("Erro ao retornar cupons" + ex);
+
         }
-        return flag;
+
+        return true;
     }
 }

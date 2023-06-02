@@ -38,6 +38,13 @@ public class Restaurante {
         this.senhaRestaurante = senhaRestaurante;
         this.nota = nota;
     }
+    
+    public Restaurante(String nomeRestaurante, int mediaAvaliacao, String comentario) {
+        this.nomeRestaurante = nomeRestaurante;
+        this.mediaAvaliacao = mediaAvaliacao;
+        this.comentario = comentario;
+   
+    }
 
     public Restaurante(String nomeRestaurante, String emailRestaurante, int nota) {
         this.nomeRestaurante = nomeRestaurante;
