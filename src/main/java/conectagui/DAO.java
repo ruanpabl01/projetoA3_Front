@@ -7,8 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import static javax.xml.stream.XMLStreamConstants.CHARACTERS;
@@ -182,6 +184,66 @@ public class DAO {
 
     }
 
+    public DadosRestaurantes[] retornaListaRestaurantesPendentes() {
+
+        DadosRestaurantes[] restaurantes = new DadosRestaurantes[3];
+        restaurantes[0] = new DadosRestaurantes("Oliver Garden", "47380257000180");
+        restaurantes[1] = new DadosRestaurantes("MCDonalds", "16523966000143");
+        restaurantes[2] = new DadosRestaurantes("BK", "27824158000132");
+
+        return restaurantes;
+
+    }
+
+    //Seta os restaurantes cadastrados na lista 'Restaurantes' e devolve para a classe chamadora. A fonte será a tabela de restaurantes cadastrados.
+    public List<String> retornaListaNomesRestaurantesCadastrados() throws Exception {
+        String aux;
+        List<String> rests = new ArrayList<>();
+        boolean boleana = false;
+        String sql = "SELECT nomeRestaurante FROM restaurante";
+
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+
+            int i = 0;
+
+            if (rs != null) {
+
+                while (rs.next()) {
+                    boleana = false;
+
+                    if (rests.isEmpty() == true) {
+                        rests.add(rs.getString("nomeRestaurante"));
+                    } else {
+                        for (String s : rests) {
+
+                            System.out.println(s + " " + rs.getString("nomeRestaurante"));
+                            if (s.equals(rs.getString("nomeRestaurante"))) {
+                                boleana = true;
+                                break;
+                            } else {
+                                continue;
+
+                            }
+
+                        }
+
+                        if (boleana == false) {
+                            rests.add(rs.getString("nomeRestaurante"));
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        return rests;
+    }
+
     public Integer calculaMediaRestaurante(int cnpj) throws Exception {
         List<Integer> notas = new ArrayList<>();
         int somatoria = 0;
@@ -246,7 +308,7 @@ public class DAO {
     }
 
     //Seta os restaurantes pendentes aprovações na lista 'Restaurantes' e devolve para a classe chamadora. A fonte será a tabela de restaurantes pendentes aprovação.
-    public DadosRestaurantes[] retornaListaRestaurantesPendentes() {
+    /* public DadosRestaurantes[] retornaListaRestaurantesPendentes() {
 
         DadosRestaurantes[] restaurantes = new DadosRestaurantes[3];
         restaurantes[0] = new DadosRestaurantes("Oliver Garden", "47380257000180");
@@ -255,8 +317,7 @@ public class DAO {
 
         return restaurantes;
 
-    }
-
+    }*/
     //Seta os restaurantes cadastrados na lista 'Restaurantes' e devolve para a classe chamadora. A fonte será a tabela de restaurantes cadastrados.
     public List<Restaurante> retornaListaRestaurantesCadastrados() throws Exception {
 
@@ -289,32 +350,58 @@ public class DAO {
         return rests;
     }
 
-    //Aqui será recebido o CNPJ, a partir dele, será necessário percorrer os comentários do restaurante em questão para setar na variável comentários e devolver para a classe chamadora
-    public List<String> retornaComentariosRestaurantesCadastrados(String cnpj) {
+    public Restaurante retornaRestauranteSelecionado(String nomeProcurado, DefaultListModel comentarios) throws Exception {
 
-        System.out.println(cnpj);
-        List<String> comentarios = new ArrayList<>();
+        Restaurante rest = new Restaurante();
 
-        comentarios.add("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-        comentarios.add("Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-        comentarios.add("Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+        String sql = "SELECT nomeRestaurante, cnpjRestaurante, mediaAvaliacao, comentarioAvaliacao FROM restaurante AS r JOIN avaliacao AS a where a.Restaurante_cnpjRestaurante = r.cnpjRestaurante";
 
-        return comentarios;
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+
+            int i = 0;
+
+            if (rs != null) {
+
+                while (rs.next()) {
+
+                    if (nomeProcurado.equals(rs.getString("nomeRestaurante"))) {
+
+                        rest.setNomeRestaurante(rs.getString("nomeRestaurante"));
+                        rest.setMediaAvaliacao(rs.getInt("mediaAvaliacao"));
+                        rest.setCnpjRestaurante(Integer.toString(rs.getInt("cnpjRestaurante")));
+
+                        comentarios.addElement(rs.getString("comentarioAvaliacao"));
+
+                    }
+                }
+
+            }
+
+        }
+
+        return rest;
+
     }
 
+    //Aqui será recebido o CNPJ, a partir dele, será necessário percorrer os comentários do restaurante em questão para setar na variável comentários e devolver para a classe chamadora
+    //  public List<String> retornaComentariosRestaurantesCadastrados(String cnpj) {
+    //return comentarios;
+    // }
     //A cada nova geração, necessário realizar inserção no banco de dados;
     //Necessário receber o usuario ao qual o cupom vai ser inserido;
-    public void gerarCupons(String usuario) {
-        //Script para gerar cupom:
-        String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        StringBuilder coupon = new StringBuilder();
-        Random random = new Random();
+    public void gerarCupom(String usuario, int cnpj) throws Exception {
+        String sql = "INSERT INTO cupom (Cliente_emailCliente, Restaurante_cnpjRestaurante) VALUES (?, ?)";
 
-        for (int i = 0; i < 5; i++) {
-            int index = random.nextInt(CHARACTERS.length());
-            coupon.append(CHARACTERS.charAt(index));
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+            ps.setString(1, usuario);
+            ps.setInt(2, cnpj);
+
+            ps.execute();
+
+            System.out.println("Cupom gerado para o cliente de email " + usuario );
+
         }
-        System.out.println(coupon);
     }
 
     //Será chamada quando o usuário clicar em 'Meus cupons'.

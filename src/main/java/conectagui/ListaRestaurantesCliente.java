@@ -8,7 +8,10 @@ import conectagui.entities.Restaurante;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,12 +19,12 @@ import javax.swing.JOptionPane;
  * @author ruan.pablo.a.gomes
  */
 public class ListaRestaurantesCliente extends javax.swing.JFrame {
-    
-    List<Restaurante> rests = new ArrayList<>() ;
+
+    List<String> rests = new ArrayList<>();
 
     Restaurante[] restaurantes;
     String login;
-    
+
     /**
      * Creates new form ListaPendenteAprovacao
      */
@@ -47,11 +50,11 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
         jTextField1nomeRest = new javax.swing.JTextField();
         jTextField3notaRest = new javax.swing.JTextField();
         jTextField2cnpjRest = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea4comentario = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jButton2voltar = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,17 +75,6 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
         jTextField2cnpjRest.setBackground(new java.awt.Color(87, 176, 60));
         jTextField2cnpjRest.setBorder(null);
         jPanel1.add(jTextField2cnpjRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 136, 340, 30));
-
-        jTextArea4comentario.setEditable(false);
-        jTextArea4comentario.setBackground(new java.awt.Color(176, 217, 163));
-        jTextArea4comentario.setColumns(20);
-        jTextArea4comentario.setRows(5);
-        jTextArea4comentario.setBorder(null);
-        jScrollPane1.setViewportView(jTextArea4comentario);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 540, 200));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\ruan.pablo.a.gomes\\OneDrive - Accenture\\Desktop\\Faculdade\\7º Semestre\\Front\\projetoA3_Front\\src\\main\\java\\imagens\\cliente_tela_restCliente.png")); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, -1));
 
         jButton2voltar.setText("Voltar");
@@ -111,6 +103,15 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
         });
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 30, 340, 30));
 
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "..." };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(jList1);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 280, 430, 200));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,8 +127,12 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-        exibeSelecionado(jComboBox1.getSelectedIndex());
+        try {
+            // TODO add your handling code here:
+            exibeSelecionado();
+        } catch (Exception ex) {
+            Logger.getLogger(ListaRestaurantesCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
@@ -136,7 +141,7 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
 
     private void jButton2voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2voltarActionPerformed
         // TODO add your handling code here:
-        GerenciamentoCliente gerCliente = new GerenciamentoCliente(login);  
+        GerenciamentoCliente gerCliente = new GerenciamentoCliente(login);
         gerCliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2voltarActionPerformed
@@ -149,11 +154,11 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
     private void retornaListaRestaurantes() {
         try {
             DAO dao = new DAO();
-            rests = dao.retornaListaRestaurantesCadastrados();
-    
-            for (Restaurante rest : rests) {
-                
-                jComboBox1.addItem(rest.getNomeRestaurante());
+            rests = dao.retornaListaNomesRestaurantesCadastrados();
+
+            for (String rest : rests) {
+
+                jComboBox1.addItem(rest);
             }
 
         } catch (Exception e) {
@@ -161,19 +166,20 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
         }
     }
 
-    public void exibeSelecionado(int index) {
+    public void exibeSelecionado() throws Exception {
+        DefaultListModel comentarios = new DefaultListModel();
+        Restaurante rest = new Restaurante();
+        String x = String.valueOf(jComboBox1.getSelectedItem());
         DAO dao = new DAO();
-        jTextField1nomeRest.setText(restaurantes[index - 1].getNomeRestaurante());
-        jTextField2cnpjRest.setText(restaurantes[index - 1].getCnpjRestaurante());
-        jTextField3notaRest.setText(Integer.toString(restaurantes[index - 1].getNota()));
-        List<String> x = dao.retornaComentariosRestaurantesCadastrados(restaurantes[index - 1].getCnpjRestaurante());
-        
-        for(int i = 0; i != x.size(); i++){
-            if(i==0){
-                jTextArea4comentario.setText("");
-            }
-            jTextArea4comentario.append(x.get(i) + "\n\n");
-        }
+
+        rest = dao.retornaRestauranteSelecionado(x, comentarios);
+
+        jTextField1nomeRest.setText(x);
+        jTextField2cnpjRest.setText(rest.getCnpjRestaurante());
+
+        jTextField3notaRest.setText(Integer.toString(rest.getMediaAvaliacao()));
+        jList1.setModel(comentarios);
+
     }
 
     /**
@@ -199,9 +205,9 @@ public class ListaRestaurantesCliente extends javax.swing.JFrame {
     private javax.swing.JButton jButton2voltar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea4comentario;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1nomeRest;
     private javax.swing.JTextField jTextField2cnpjRest;
     private javax.swing.JTextField jTextField3notaRest;

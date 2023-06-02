@@ -16,8 +16,8 @@ import javax.swing.JOptionPane;
  * @author ruan.pablo.a.gomes
  */
 public class ListaRestaurantesAdmin extends javax.swing.JFrame {
-    
-      List<Restaurante> rests = new ArrayList<>();
+
+    List<Restaurante> rests = new ArrayList<>();
 
     Restaurante[] restaurantes;
 
@@ -156,13 +156,13 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
         int notaRestaurante = Integer.parseInt(jTextField3notaRest.getText());
-             
-        DAO dao = new DAO(); 
-        try { 
+
+        DAO dao = new DAO();
+        try {
             dao.atualizarRestaurante(cnpjRestaurante, nomeRestaurante);
             JOptionPane.showMessageDialog(null, "Atualização realizada!");
         } catch (Exception ex) {
-            
+
         }
         GerenciamentoAdmin telaGerAdmin = new GerenciamentoAdmin();
         telaGerAdmin.setVisible(true);
@@ -173,17 +173,17 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
-        
+
         DAO dao = new DAO();
-        try{
+        try {
             dao.deletarRestaurante(Integer.parseInt(cnpjRestaurante));
             JOptionPane.showMessageDialog(null, "Remoção realizada!");
-        }catch(Exception e){
-            
+        } catch (Exception e) {
+
         }
         GerenciamentoAdmin telaGerAdmin = new GerenciamentoAdmin();
         telaGerAdmin.setVisible(true);
-        this.dispose();       
+        this.dispose();
     }//GEN-LAST:event_jButton1deletarActionPerformed
 
     private void jButton1voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1voltarActionPerformed
@@ -199,12 +199,10 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
             DAO dao = new DAO();
             rests = dao.retornaListaRestaurantesCadastrados();
             List<String> listaDados = new ArrayList<>();
-            for (int i = 0; i != restaurantes.length; i++) {
-                listaDados.add(
-                        " Nome do restaurante: " + restaurantes[i].getNomeRestaurante());
-            }
-            for (int i = 0; i != restaurantes.length; i++) {
-                jComboBox1.addItem(listaDados.get(i));
+
+            for (Restaurante rest : rests) {
+                jComboBox1.addItem(" Nome do restaurante: " + rest.getNomeRestaurante());
+
             }
 
         } catch (Exception e) {

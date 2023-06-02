@@ -255,6 +255,8 @@ public class ListaRestaurantesAvaliar extends javax.swing.JFrame {
             dao.avaliarRestaurante(jTextField1usuarioAvaliador.getText(), Integer.parseInt(login), jTextArea1comentario.getText(), avaliacao);
 
             dao.atualizarAvaliacaoRestaurante(Integer.parseInt(login));
+            
+            dao.gerarCupom(jTextField1usuarioAvaliador.getText(), Integer.parseInt(login));
 
             GerenciamentoRestaurantes telaGerRest = new GerenciamentoRestaurantes(login);
             telaGerRest.setVisible(true);
