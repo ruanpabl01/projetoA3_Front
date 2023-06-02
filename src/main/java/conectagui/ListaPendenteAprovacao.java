@@ -4,11 +4,15 @@
  */
 package conectagui;
 
+
 import conectagui.entities.Restaurante;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -119,8 +123,12 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-        exibeSelecionado(jComboBox1.getSelectedIndex());
+        try {
+            // TODO add your handling code here:
+            exibeSelecionado();
+        } catch (Exception ex) {
+            Logger.getLogger(ListaPendenteAprovacao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
@@ -133,30 +141,32 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
         
-        Restaurante restaurante = new Restaurante (nomeRestaurante, cnpjRestaurante); 
-        DAO dao = new DAO(); 
-        try { 
-            dao.inserirRestaurante(restaurante);
-            JOptionPane.showMessageDialog(null, "Aprovação realizada!");
+        System.out.println(nomeRestaurante + " " +cnpjRestaurante);
+
+        Restaurante restaurante = new Restaurante(nomeRestaurante, cnpjRestaurante);
+        DAO dao = new DAO();
+        try {
+            dao.aprovarRestaurante(restaurante);
+            GerenciamentoAdmin telaGerAdmin = new GerenciamentoAdmin();
+            telaGerAdmin.setVisible(true);
+            this.dispose();
         } catch (Exception ex) {
-            
+
         }
-        GerenciamentoAdmin telaGerAdmin = new GerenciamentoAdmin();
-        telaGerAdmin.setVisible(true);
-        this.dispose();
+
+
     }//GEN-LAST:event_jButton1aprovarMouseClicked
 
     private void jButton2reprovarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2reprovarMouseClicked
         // TODO add your handling code here:
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
-        
+
         DAO dao = new DAO();
-        try{
-            dao.reprovarRestaurante(Integer.parseInt(cnpjRestaurante));
-            JOptionPane.showMessageDialog(null, "Reprovação realizada!");
-        }catch(Exception e){
-            
+        try {
+            dao.deletarRestaurante(Integer.parseInt(cnpjRestaurante));
+        } catch (Exception e) {
+
         }
         GerenciamentoAdmin telaGerAdmin = new GerenciamentoAdmin();
         telaGerAdmin.setVisible(true);
@@ -174,13 +184,12 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
     private void retornaRestaurantesPendAprov() {
         try {
             DAO dao = new DAO();
-            restaurantes = dao.retornaListaRestaurantesPendentes();
+            List<Restaurante> rests = new ArrayList<>();
+            rests = dao.retornaListaRestaurantesPendentes();
+
             List<String> listaDados = new ArrayList<>();
-            for (int i = 0; i != restaurantes.length; i++) {
-                listaDados.add(" Nome do restaurante: " + restaurantes[i].getNomeRestaurante());
-            }
-            for (int i = 0; i != restaurantes.length; i++) {
-                jComboBox1.addItem(listaDados.get(i));
+            for (Restaurante rest : rests) {
+                jComboBox1.addItem(rest.getNomeRestaurante());
             }
 
         } catch (Exception e) {
@@ -188,9 +197,21 @@ public class ListaPendenteAprovacao extends javax.swing.JFrame {
         }
     }
 
-    public void exibeSelecionado(int index) {
-        jTextField1nomeRest.setText(restaurantes[index - 1].getNomeRestaurante());
-        jTextField2cnpjRest.setText(restaurantes[index - 1].getCnpjRestaurante());
+    public void exibeSelecionado() throws Exception {
+
+        DefaultListModel comentarios = new DefaultListModel();
+        Restaurante rest = new Restaurante();
+        String x = String.valueOf(jComboBox1.getSelectedItem());
+        DAO dao = new DAO();
+        
+
+        rest = dao.retornaRestauranteSelecionadoAdm(x);
+        
+        System.out.println( rest.getNomeRestaurante() + " " + rest.getCnpjRestaurante());
+
+        jTextField1nomeRest.setText(rest.getNomeRestaurante());
+        jTextField2cnpjRest.setText(rest.getCnpjRestaurante());
+
     }
 
     /**

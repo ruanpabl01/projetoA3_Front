@@ -83,7 +83,7 @@ public class GerenciamentoAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1pendAprovActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1pendAprovActionPerformed
-        // TODO add your handling code here:
+        // FAZ UPDATE
         ListaPendenteAprovacao listaPA = new ListaPendenteAprovacao();
         listaPA.setVisible(true);
         this.dispose();

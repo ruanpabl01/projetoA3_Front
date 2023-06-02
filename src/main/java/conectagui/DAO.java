@@ -5,6 +5,7 @@ import conectagui.entities.Restaurante;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -105,6 +106,24 @@ public class DAO {
 
     }
 
+    public void aprovarRestaurante(Restaurante restaurante) throws Exception {
+
+        String sql = "UPDATE restaurante SET statusCadastroRestaurante = ? WHERE cnpjRestaurante = ?";
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+            ps.setInt(2, Integer.parseInt(restaurante.getCnpjRestaurante()));
+            ps.setString(1, "cadastrado");
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Aprovado com sucesso! ");
+
+        } catch (Exception ex) {
+
+            System.out.println("Não foi possível aprovar." + ex);
+            JOptionPane.showMessageDialog(null, "Não foi possível aprovar. Tente novamente.");
+        }
+
+    }
+
     //Recebe o CNPJ cujo cadastro foi reprovado. O restaurante deve ser removido da tabela de restaurantes pendentes aprovação.
     public void reprovarRestaurante(Integer cnpj) throws Exception {
         String sql = "DELETE FROM restaurante WHERE cnpjRestaurante = ?";
@@ -116,10 +135,17 @@ public class DAO {
     }
 
     public void deletarRestaurante(Integer cnpj) throws Exception {
-        String sql = "DELETE FROM restaurante WHERE id = ?";
+        String sql = "UPDATE restaurante SET statusCadastroRestaurante = 'excluido' WHERE cnpjRestaurante = ?";
         try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql);) {
+
+           
             ps.setInt(1, cnpj);
-            ps.execute();
+       
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Atualização realizada.");
+
+          
         }
         System.out.println(cnpj);
     }
@@ -184,14 +210,35 @@ public class DAO {
 
     }
 
-    public DadosRestaurantes[] retornaListaRestaurantesPendentes() {
+    public List<Restaurante> retornaListaRestaurantesPendentes() throws Exception {
+        List<Restaurante> rests = new ArrayList<>();
 
-        DadosRestaurantes[] restaurantes = new DadosRestaurantes[3];
-        restaurantes[0] = new DadosRestaurantes("Oliver Garden", "47380257000180");
-        restaurantes[1] = new DadosRestaurantes("MCDonalds", "16523966000143");
-        restaurantes[2] = new DadosRestaurantes("BK", "27824158000132");
+        String sql = "SELECT nomeRestaurante, cnpjRestaurante, statusCadastroRestaurante FROM restaurante WHERE statusCadastroRestaurante = ? ";
 
-        return restaurantes;
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+            ps.setString(1, "pendente");
+            ResultSet rs = ps.executeQuery();
+
+            int i = 0;
+
+            if (rs != null) {
+
+                while (rs.next()) {
+
+                    Restaurante rest = new Restaurante();
+
+                    rest.setNomeRestaurante(rs.getString("nomeRestaurante"));
+                    rest.setCnpjRestaurante(Integer.toString(rs.getInt("cnpjRestaurante")));
+                    rest.setStatusCadastroRestaurante(rs.getString("statusCadastroRestaurante"));
+
+                    rests.add(rest);
+                }
+
+            }
+
+        }
+
+        return rests;
 
     }
 
@@ -200,7 +247,7 @@ public class DAO {
         String aux;
         List<String> rests = new ArrayList<>();
         boolean boleana = false;
-        String sql = "SELECT nomeRestaurante FROM restaurante";
+        String sql = "SELECT nomeRestaurante FROM restaurante WHERE statusCadastroRestaurante = 'cadastrado'";
 
         try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
@@ -323,7 +370,7 @@ public class DAO {
 
         List<Restaurante> rests = new ArrayList<>();
 
-        String sql = "SELECT nomeRestaurante, mediaAvaliacao, comentarioAvaliacao FROM restaurante AS r JOIN avaliacao AS a where a.Restaurante_cnpjRestaurante = r.cnpjRestaurante";
+        String sql = "SELECT DISTINCT nomeRestaurante, mediaAvaliacao, comentarioAvaliacao FROM restaurante AS r JOIN avaliacao AS a where a.Restaurante_cnpjRestaurante = r.cnpjRestaurante and r.statusCadastroRestaurante = 'cadastrado'";
 
         try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
@@ -348,6 +395,79 @@ public class DAO {
         }
 
         return rests;
+    }
+
+    public Restaurante retornaRestauranteSelecionadoAdm(String nomeProcurado) throws Exception {
+
+        Restaurante rest = new Restaurante();
+
+        String sql = "SELECT nomeRestaurante, cnpjRestaurante, statusCadastroRestaurante FROM restaurante WHERE nomeRestaurante = ?";
+        System.out.println(nomeProcurado + "nomeprocurado");
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+
+            ps.setString(1, nomeProcurado);
+            ResultSet rs = ps.executeQuery();
+
+            int i = 0;
+
+            if (rs != null) {
+
+                while (rs.next()) {
+
+                    System.out.println(rs.getString("nomeRestaurante"));
+
+                    rest.setNomeRestaurante(rs.getString("nomeRestaurante"));
+                    rest.setStatusCadastroRestaurante(rs.getString("statusCadastroRestaurante"));
+                    rest.setCnpjRestaurante(Integer.toString(rs.getInt("cnpjRestaurante")));
+
+                }
+
+            }
+
+        } catch (Exception ex) {
+            System.out.println("exception" + ex);
+
+        }
+
+        return rest;
+
+    }
+
+    public Restaurante retornaRestauranteSelecionadoAdmENota(String nomeProcurado) throws Exception {
+
+        Restaurante rest = new Restaurante();
+
+        String sql = "SELECT nomeRestaurante, cnpjRestaurante, statusCadastroRestaurante, mediaAvaliacao FROM restaurante WHERE nomeRestaurante = ?";
+        System.out.println(nomeProcurado + "nomeprocurado");
+        try (Connection conexao = ConexaoBD.obterConexao(); PreparedStatement ps = conexao.prepareStatement(sql)) {
+
+            ps.setString(1, nomeProcurado);
+            ResultSet rs = ps.executeQuery();
+
+            int i = 0;
+
+            if (rs != null) {
+
+                while (rs.next()) {
+
+                    System.out.println(rs.getString("nomeRestaurante"));
+
+                    rest.setNomeRestaurante(rs.getString("nomeRestaurante"));
+                    rest.setStatusCadastroRestaurante(rs.getString("statusCadastroRestaurante"));
+                    rest.setCnpjRestaurante(Integer.toString(rs.getInt("cnpjRestaurante")));
+                    rest.setMediaAvaliacao(rs.getInt("mediaAvaliacao"));
+
+                }
+
+            }
+
+        } catch (Exception ex) {
+            System.out.println("exception" + ex);
+
+        }
+
+        return rest;
+
     }
 
     public Restaurante retornaRestauranteSelecionado(String nomeProcurado, DefaultListModel comentarios) throws Exception {
@@ -399,7 +519,7 @@ public class DAO {
 
             ps.execute();
 
-            System.out.println("Cupom gerado para o cliente de email " + usuario );
+            System.out.println("Cupom gerado para o cliente de email " + usuario);
 
         }
     }

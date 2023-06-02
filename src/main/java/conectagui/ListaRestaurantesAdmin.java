@@ -8,7 +8,10 @@ import conectagui.entities.Restaurante;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -134,8 +137,12 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-        exibeSelecionado(jComboBox1.getSelectedIndex());
+        try {
+            // TODO add your handling code here:
+            exibeSelecionado();
+        } catch (Exception ex) {
+            Logger.getLogger(ListaRestaurantesAdmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
@@ -174,16 +181,20 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
         String nomeRestaurante = jTextField1nomeRest.getText();
         String cnpjRestaurante = jTextField2cnpjRest.getText();
 
+        System.out.println(jTextField2cnpjRest.getText());
+
         DAO dao = new DAO();
         try {
             dao.deletarRestaurante(Integer.parseInt(cnpjRestaurante));
-            JOptionPane.showMessageDialog(null, "Remoção realizada!");
+
         } catch (Exception e) {
 
         }
+
         GerenciamentoAdmin telaGerAdmin = new GerenciamentoAdmin();
         telaGerAdmin.setVisible(true);
         this.dispose();
+
     }//GEN-LAST:event_jButton1deletarActionPerformed
 
     private void jButton1voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1voltarActionPerformed
@@ -201,7 +212,7 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
             List<String> listaDados = new ArrayList<>();
 
             for (Restaurante rest : rests) {
-                jComboBox1.addItem(" Nome do restaurante: " + rest.getNomeRestaurante());
+                jComboBox1.addItem(rest.getNomeRestaurante());
 
             }
 
@@ -210,10 +221,16 @@ public class ListaRestaurantesAdmin extends javax.swing.JFrame {
         }
     }
 
-    public void exibeSelecionado(int index) {
-        jTextField1nomeRest.setText(restaurantes[index - 1].getNomeRestaurante());
-        jTextField2cnpjRest.setText(restaurantes[index - 1].getCnpjRestaurante());
-        jTextField3notaRest.setText(Integer.toString(restaurantes[index - 1].getNota()));
+    public void exibeSelecionado() throws Exception {
+
+        Restaurante rest = new Restaurante();
+        String x = String.valueOf(jComboBox1.getSelectedItem());
+        DAO dao = new DAO();
+
+        rest = dao.retornaRestauranteSelecionadoAdmENota(x);
+        jTextField1nomeRest.setText(rest.getNomeRestaurante());
+        jTextField2cnpjRest.setText(rest.getCnpjRestaurante());
+        jTextField3notaRest.setText(Integer.toString(rest.getMediaAvaliacao()));
     }
 
     /**

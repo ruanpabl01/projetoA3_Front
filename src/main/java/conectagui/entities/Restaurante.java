@@ -38,27 +38,26 @@ public class Restaurante {
         this.senhaRestaurante = senhaRestaurante;
         this.nota = nota;
     }
-    
-     public Restaurante() {
+
+    public Restaurante() {
 
     }
-    
+
     public Restaurante(String nomeRestaurante, int mediaAvaliacao, String comentario, String cnpjRestaurante) {
         this.nomeRestaurante = nomeRestaurante;
         this.mediaAvaliacao = mediaAvaliacao;
         this.comentario = comentario;
         this.cnpjRestaurante = cnpjRestaurante;
-   
+
     }
 
-    
-        
     public Restaurante(String nomeRestaurante, int mediaAvaliacao, String comentario) {
         this.nomeRestaurante = nomeRestaurante;
         this.mediaAvaliacao = mediaAvaliacao;
         this.comentario = comentario;
-        
+
     }
+
     public Restaurante(String nomeRestaurante, String emailRestaurante, int nota) {
         this.nomeRestaurante = nomeRestaurante;
         this.cnpjRestaurante = emailRestaurante;
@@ -75,6 +74,8 @@ public class Restaurante {
         this.nomeRestaurante = nomeRestaurante;
         this.cnpjRestaurante = cnpjRestaurante;
     }
+
+
 
     public Restaurante(String cnpjRestaurante) {
         this.cnpjRestaurante = cnpjRestaurante;
